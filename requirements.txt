@@ -1,0 +1,3 @@
+isort # then delete
+flake8
+django
