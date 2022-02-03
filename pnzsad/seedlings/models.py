@@ -15,7 +15,7 @@ class Category(models.Model):
         verbose_name="Часть URL категории",
     )
     image = models.ImageField(
-        upload_to='./',
+        upload_to='./Category/',
         verbose_name="Фото категории",
     )
 
@@ -23,6 +23,12 @@ class Category(models.Model):
         ordering = ('title',)
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+        constraints = (
+            models.UniqueConstraint(
+                fields=['title', ],
+                name='unique category value'
+            ),
+        )
 
     def __str__(self):
         return self.title
@@ -49,11 +55,11 @@ class Seedling(models.Model):
         verbose_name="Часть URL сорта",
     )
     image = models.ImageField(
-        upload_to='./',
+        upload_to='./Seedlings/',
         verbose_name="Фото сорта",
     )
     short_description = models.CharField(
-        max_length=150,
+        max_length=100,
         blank=True,
         verbose_name="Краткое описание сорта",
     )
@@ -92,6 +98,78 @@ class Seedling(models.Model):
         index_together = (('id', 'slug'),)
         verbose_name = 'Саженец'
         verbose_name_plural = 'Саженцы'
+        constraints = (
+            models.UniqueConstraint(
+                fields=['title', 'category'],
+                name='unique seedling value'
+            ),
+        )
 
     def __str__(self):
         return self.title
+
+
+class Swiper(models.Model):
+    title = models.CharField(
+        max_length=70,
+        verbose_name="Название слайда",
+    )
+    text = models.CharField(
+        max_length=450,
+        verbose_name="Текст слайда",
+    )
+    image = models.ImageField(
+        upload_to='./Swiper/',
+        verbose_name="Фото сорта",
+    )
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата создания слайда",
+    )
+    available = models.BooleanField(
+        default=True,
+        verbose_name="Активный слайд",
+    )
+
+    class Meta:
+        ordering = ('title',)
+        verbose_name = 'Слайд'
+        verbose_name_plural = 'Слайды'
+
+    def __str__(self):
+        return self.title
+
+
+class Comment(models.Model):
+    seedling = models.ForeignKey(
+        Seedling,
+        on_delete=models.CASCADE,
+        related_name="comments",
+        verbose_name="Сорт",
+    )
+    text = models.TextField(
+        verbose_name="Текст комментария",
+    )
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата создания комментария",
+    )
+    author_name = models.CharField(
+        max_length=50,
+        verbose_name="Имя автора",
+    )
+
+    class Meta:
+        ordering = ("created",)
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+        index_together = ('seedling',)
+        constraints = (
+            models.UniqueConstraint(
+                fields=['seedling', 'text'],
+                name='unique comment value'
+            ),
+        )
+
+    def __str__(self):
+        return f"Комментарий от {self.author_name}: {self.text[:30]}"
