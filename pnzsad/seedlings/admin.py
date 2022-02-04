@@ -14,7 +14,7 @@ class CategoryAdmin(admin.ModelAdmin):
     empty_value_display = EMPTY_VALUE
 
     def display_image(self, obj):
-        return mark_safe(f'<img src={obj.image.url} width="65">')
+        return mark_safe(f'<img src={obj.image.url} width="65" height="65">')
 
     display_image.__name__ = 'Изображение'
 
@@ -31,7 +31,7 @@ class SeedlingAdmin(admin.ModelAdmin):
     list_editable = ('retail_price', 'wholesale_price', 'stock', 'available')
 
     def display_image(self, obj):
-        return mark_safe(f'<img src={obj.image.url} width="65">')
+        return mark_safe(f'<img src={obj.image.url} width="65"  height="65">')
 
     display_image.__name__ = 'Изображение'
 
@@ -44,7 +44,7 @@ class SwiperAdmin(admin.ModelAdmin):
     list_editable = ('available',)
 
     def display_image(self, obj):
-        return mark_safe(f'<img src={obj.image.url} width="65">')
+        return mark_safe(f'<img src={obj.image.url} width="65"  height="65">')
 
     display_image.__name__ = 'Изображение'
 
