@@ -1,0 +1,16 @@
+.page {
+  margin: 0 auto;
+  font-family: "Inter", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+  max-width: 1440px;
+  background-color: #f9f9f9;
+  color: #151515;
+}
+
+.page__section {
+  padding-left: calc(25%/10);
+  padding-right: calc(25%/10);
+}

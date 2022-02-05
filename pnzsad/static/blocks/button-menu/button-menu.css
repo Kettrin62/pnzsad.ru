@@ -1,0 +1,27 @@
+.button-menu {
+  display: none;
+  cursor: pointer;
+  background-color: inherit;
+}
+  
+.button-menu__line {
+  width: 22px;
+  margin-bottom: 5px;
+  border-bottom: 3px solid #151515;
+}
+
+.button-menu__image {
+  height: 30px;
+  width: 30px;
+}
+
+
+@media all and (max-width: 760px) {
+  .button-menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    padding: 0;
+  }
+}

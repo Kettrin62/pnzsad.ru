@@ -1,0 +1,27 @@
+.plants {
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: flex-start; */
+  /* max-width: 1220px; */
+  padding-bottom: 30px;
+}
+
+@media all and (max-width: 800px) {
+  .plants {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    max-width: 584px;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 610px) {
+  .plants {
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: 282px;
+    margin: 0 auto;
+  }
+}
+

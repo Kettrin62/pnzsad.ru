@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="elements">
+    <h2 class="elements__title">Саженцы плодово-ягодных и&nbsp;декаративных растений на&nbsp;выбор</h2>
+    <ul class="elements__list">
+      {% for category in categoryes %}
+        {% include "includes/category_item.html" %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

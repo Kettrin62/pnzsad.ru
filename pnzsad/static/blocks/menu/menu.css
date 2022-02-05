@@ -1,0 +1,40 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 300px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: inherit;
+  padding-top: 19px;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s, opacity .3s linear;
+}
+
+.menu__button-close {
+  background: url(../../images/menu-button-close.svg) center/cover no-repeat;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  height: 32px;
+  width: 32px;
+  transition: opacity .4s linear;
+  margin-right: 14px;
+  margin-bottom: 27px;
+  align-self: flex-end;
+}
+
+.menu__button-close:hover {
+  opacity: .6;
+}
+
+.menu_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.3s linear;
+  z-index: 5;
+}
