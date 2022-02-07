@@ -59,7 +59,7 @@ class Seedling(models.Model):
         verbose_name="Фото сорта",
     )
     short_description = models.CharField(
-        max_length=100,
+        max_length=60,
         blank=True,
         verbose_name="Краткое описание сорта",
     )
