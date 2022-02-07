@@ -1,16 +1,17 @@
+{% load static %}
 <footer class="footer page__section">
   <p class="footer__copy">&copy; Питомник Елизарова&nbsp;2022</p>
   <ul class="footer__list">
     <li class="footer__item">
-      <img class="footer__icon" src="./images/telephone-icon.svg" alt="Иконка телефона">
+      <img class="footer__icon" src="{% static 'images/telephone-icon.svg' %}" alt="Иконка телефона">
       <p class="footer__text">8 962 474 30 70</p>
     </li>
     <li class="footer__item">
-      <img class="footer__icon" src="./images/mail.svg" alt="Иконка e-mail адреса">
+      <img class="footer__icon" src="{% static 'images/mail.svg' %}" alt="Иконка e-mail адреса">
       <p class="footer__text">sajenci58@gmail.com</p>
     </li>
     <li class="footer__item">
-      <img class="footer__icon" src="./images/map.svg" alt="Иконка карты">
+      <img class="footer__icon" src="{% static 'images/map.svg' %}" alt="Иконка карты">
       <p class="footer__text"> 442710, Пензенская обл., р.п.Исса, ул.Гаврилова, д.36</p>
     </li>
   </ul>

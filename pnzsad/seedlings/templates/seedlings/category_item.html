@@ -1,9 +1,9 @@
 <li class="element">
-  <button type="button" class="element__button-card">
+  <a class="element__button-card" href="{{ category.get_absolute_url }}">
     <figure class="element__image" style="background-image:url(media/{{ category.image }})">
       <figcaption class="element__caption">{{ category.title }}</figcaption>
     </figure>
-  </button>
+  </a>
 </li>
 
 

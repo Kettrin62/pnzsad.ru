@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 
 
@@ -32,6 +33,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse(
+            'seedlings:seedlings_by_category',
+            args=[self.slug],
+        )
 
 
 class Seedling(models.Model):
@@ -115,7 +122,7 @@ class Swiper(models.Model):
         verbose_name="Название слайда",
     )
     text = models.CharField(
-        max_length=450,
+        max_length=260,
         verbose_name="Текст слайда",
     )
     image = models.ImageField(
@@ -130,9 +137,12 @@ class Swiper(models.Model):
         default=True,
         verbose_name="Активный слайд",
     )
+    display_order = models.PositiveSmallIntegerField(
+        verbose_name='Порядок отображения',
+    )
 
     class Meta:
-        ordering = ('title',)
+        ordering = ('display_order',)
         verbose_name = 'Слайд'
         verbose_name_plural = 'Слайды'
 

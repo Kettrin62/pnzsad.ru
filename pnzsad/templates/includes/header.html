@@ -1,14 +1,14 @@
 {% load static %}
 <header class="header page__section">
   <nav class="nav header__nav nav_desctop">
-    <a href="#" class="nav__link">
+    <a href="{% url 'seedlings:index' %}" class="nav__link">
       <h1 class="nav__title">
         Питомник Елизарова
       </h1>
     </a>
     <ul class="nav__links">
       <li class="nav__link">
-        <a href={% url 'seedlings:seedlings_all' %} class="nav__link">Саженцы</a>
+        <a href="{% url 'seedlings:seedlings_all' %}" class="nav__link">Саженцы</a>
       </li>
       <li class="nav__link">
         <a href="#" class="nav__link">О питомнике</a>
@@ -38,7 +38,7 @@
       <span class="button-menu__line"></span>
       <span class="button-menu__line"></span>
     </button>
-    <a href="#" class="nav__link nav__link_mobile">
+    <a href="{% url 'seedlings:index' %}" class="nav__link nav__link_mobile">
       <h1 class="nav__title">
         Питомник Елизарова
       </h1>
@@ -66,14 +66,14 @@
     <nav class="nav">
       <ul class="nav__links nav__links_type_vertical">
         <li class="nav__link">
-          <a href="#" class="nav__link">
+          <a href="{% url 'seedlings:index' %}" class="nav__link">
             <h1 class="nav__title">
               Питомник Елизарова
             </h1>
           </a>
         </li>
         <li class="header__link">
-          <a href="./plants.html" class="nav__link">Саженцы</a>
+          <a href="{% url 'seedlings:seedlings_all' %}" class="nav__link">Саженцы</a>
         </li>
         <li class="header__link">
           <a href="#" class="nav__link">О питомнике</a>

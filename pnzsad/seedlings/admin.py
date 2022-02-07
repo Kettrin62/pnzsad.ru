@@ -38,10 +38,11 @@ class SeedlingAdmin(admin.ModelAdmin):
 
 class SwiperAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'image', 'display_image', 'text', 'created', 'available'
+        'title', 'image', 'display_image', 'text', 'created', 'available',
+        'display_order',
     )
     empty_value_display = EMPTY_VALUE
-    list_editable = ('available',)
+    list_editable = ('available', 'display_order')
 
     def display_image(self, obj):
         return mark_safe(f'<img src={obj.image.url} width="65"  height="65">')

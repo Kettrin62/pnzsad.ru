@@ -13,7 +13,7 @@ def get_paginator_page(request, objects):
 
 
 def index(request):
-    categoryes = Category.objects.all().values('title', 'image')
+    categoryes = Category.objects.all()
     swiper = Swiper.objects.filter(available=True).values('text', 'image')
 
     return render(
