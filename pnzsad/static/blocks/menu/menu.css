@@ -23,9 +23,9 @@
   height: 32px;
   width: 32px;
   transition: opacity .4s linear;
-  margin-right: 14px;
+  margin-left: 14px;
   margin-bottom: 27px;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .menu__button-close:hover {

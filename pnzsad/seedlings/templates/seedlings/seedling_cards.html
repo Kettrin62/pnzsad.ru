@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="plants">
+    <div class="categories">
+      <a href="#" class="categories__button-title">{{ current_category }}</a>
+      <ul class="categories__list">
+        <li class="categories__item">
+          <a href="#" class="categories__button categories__button_active">{{ current_category }}</a>
+        </li>
+        <li class="categories__item">
+          <a href="#" class="categories__button">Все категории</a>
+        </li>
+      {% for category in categoryes %}
+        <li class="categories__item">
+          <a href="#" class="categories__button">{{ category.title }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+    <ul class="cards">
+      {% for page_item in page %}
+        {% include "seedlings/seedling_cards_item.html" %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

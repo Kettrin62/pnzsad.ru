@@ -17,7 +17,6 @@
 
 @media all and (max-width: 900px) {
   .cards {
-    /* max-width: 444px; */
     padding-left: 10px;
     column-gap: 10px;
   }
@@ -32,6 +31,8 @@
 
 @media all and (max-width: 610px) {
   .cards {
-    max-width: 282px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }

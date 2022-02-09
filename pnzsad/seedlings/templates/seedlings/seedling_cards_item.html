@@ -1,0 +1,17 @@
+<li class="card">
+  <a href="./card-description.html" class="card__button-card">
+    <figure class="card__image" style="background-image:url(/media/{{ page_item.image }})">
+      <figcaption class="card__caption">{{ page_item.title }}</figcaption>
+    </figure>
+  </a>
+  <div class="card__discription">
+    <p class="card__text">{{ page_item.short_description }}</p>
+    <p class="card__quantity">В наличии {{ page_item.stock }} шт.</p>
+    <p class="card__price">Цена {{ page_item.retail_price }}&#8381;</p>
+    <a href="./card-description.html" class="card__button-cart">Подробнее</a>
+    <a href="#" class="card__button-cart">В корзину</a>
+  </div>
+</li>
+
+
+

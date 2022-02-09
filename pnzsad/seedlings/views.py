@@ -41,7 +41,7 @@ def seedlings(request, category_slug=None):
         page = get_paginator_page(request, seedlings)
         return render(
             request,
-            'seedlings/test.html',
+            'seedlings/seedling_cards.html',
             {
                 'categoryes': categoryes,
                 'current_category': category,
@@ -57,7 +57,7 @@ def seedlings(request, category_slug=None):
     )
     return render(
             request,
-            'seedlings/test.html',
+            'seedlings/seedling_cards.html',
             {
                 'categoryes': categoryes,
                 'current_category': 'Все категории',

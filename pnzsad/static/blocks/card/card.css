@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
-
   position: relative;
+  text-decoration: none;
+  color: inherit;
 }
 
 .card__button-card {
@@ -17,9 +17,8 @@
   padding: 0;
   width: 100%;
   transition: opacity .3s ease-in-out;
-
-
-
+  text-decoration: none;
+  color: inherit;
 }
 
 .card__button-card:hover {
@@ -38,8 +37,6 @@
   width: 100%;
   align-items: flex-start;
   border-radius: 5px;
-
-
   height: 430px;
 }
 
@@ -59,24 +56,17 @@
 }
 
 .card__discription {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center; */
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: repeat(3, min-content);
-  /* justify-content: space-between; */
   width: 100%;
   box-sizing: border-box;
-
   padding: 5px 10px 10px;
   position: absolute;
   bottom: 0;
   left: 0;
   background-color: #e8e8e8;
   opacity: .8;
-
 }
 
 .card__text {
@@ -112,6 +102,11 @@
   font-size: 16px;
   font-weight: 500;
   transition: transform .3s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card__button-cart:nth-of-type(2n) {
@@ -122,28 +117,79 @@
   transform: scale(1.05, 1.05);
 }
 
+.card__title {
+  display: none;
+}
+
 
 
 
 @media all and (max-width: 610px) {
-  .card__image {
-    /* height: 61vw; */
+  .card {
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 
   .card__caption {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 1.1;
-    min-height: 36px;
+    min-height: 30px;
     padding-top: 5px;
     padding-bottom: 5px;
+    display: none;
+  }
+
+  .card__title {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.1;
+    min-height: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+  }
+
+  .card__text {
+    font-size: 12px;
+    align-self: start;
+    text-align: start;
   }
 
   .card__quantity {
     font-size: 12px;
+    margin: 0;
+    align-self: flex-end;
+
   }
 
   .card__price {
     font-size: 12px;
+    margin: 0;
+    align-self: flex-end;
+  }
+
+  .card__image {
+    border-radius: 5px 0 0 5px;
+    height: 100%;
+  }
+
+  .card__discription {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    height: min-content;
+  }
+
+  .card__button-cart {
+    width: 90%;
+    min-height: 25px;
+    font-size: 12px;
+    font-weight: 500;
   }
 }
