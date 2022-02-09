@@ -39,6 +39,10 @@
   background-size: 10px 40px;
 }
 
+.categories__current {
+  display: none;
+}
+
 .categories__list {
   display: flex;
   flex-direction: column;

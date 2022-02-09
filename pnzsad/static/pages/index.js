@@ -10,6 +10,11 @@ const menuCloseButton = bodyElement.querySelector('.menu__button-close');
 const buttonCategoriesElement = bodyElement.querySelector('.categories__button-title');
 // находим список категорий
 const listCategoriesElement = bodyElement.querySelector('.categories__list');
+// находим все кнопки категорий
+const categoriesItemLinks = bodyElement.querySelectorAll('.categories__button');
+// находим наименование активной категории
+const currentCategoriesElement = bodyElement.querySelector('.categories__current');
+console.log(currentCategoriesElement.textContent);
 
 // swiper
 const swiper = new Swiper('.swiper', {
@@ -68,3 +73,22 @@ function openListButtons() {
 buttonCategoriesElement.addEventListener('click', () => {
   openListButtons();
 })
+
+// функция обнуления ссылок
+function inactiveLink(link) {
+  if (link.classList.contains('categories__button_active')) {
+    link.classList.remove('categories__button_active')
+  }
+}
+
+// функция активации ссылки
+function activeLink(link) {
+  link.classList.add('categories__button_active');
+}
+
+// добавляем класс активной ссылки нужному элементу
+categoriesItemLinks.forEach((item) => {
+  if (item.textContent === currentCategoriesElement.textContent) {
+    activeLink(item)
+  } else inactiveLink(item);
+});

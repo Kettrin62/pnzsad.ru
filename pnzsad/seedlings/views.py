@@ -27,7 +27,7 @@ def index(request):
 
 
 def seedlings(request, category_slug=None):
-    categoryes = Category.objects.all().values('title', 'image')
+    categoryes = Category.objects.all()
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -38,29 +38,23 @@ def seedlings(request, category_slug=None):
             'title', 'image', 'short_description', 'retail_price',
             'wholesale_price', 'stock'
         )
-        page = get_paginator_page(request, seedlings)
-        return render(
+    else:
+        category = 'Все категории'
+        seedlings = Seedling.objects.filter(
+            available=True
+            ).values(
+                'title', 'image', 'short_description', 'retail_price',
+                'wholesale_price', 'stock'
+        )
+
+    page = get_paginator_page(request, seedlings)
+
+    return render(
             request,
             'seedlings/seedling_cards.html',
             {
                 'categoryes': categoryes,
                 'current_category': category,
                 'page': page
-            }
-        )
-
-    seedlings = Seedling.objects.filter(
-        available=True
-        ).values(
-            'title', 'image', 'short_description', 'retail_price',
-            'wholesale_price', 'stock'
-    )
-    return render(
-            request,
-            'seedlings/seedling_cards.html',
-            {
-                'categoryes': categoryes,
-                'current_category': 'Все категории',
-                'seedlings': seedlings
             }
         )
