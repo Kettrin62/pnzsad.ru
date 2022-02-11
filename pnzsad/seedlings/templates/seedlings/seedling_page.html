@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="plants">
+    {% include "seedlings/categoryes_menu.html" %}
+    <section class="card-description">
+      <img src="/media/{{ seedling.image }}" alt="{{ seedling.title }}" class="card-description__image">
+      <div class="card-description__caption">
+        <h3 class="card-description__title">{{ seedling.title }}</h3>
+        <p class="card-description__quanity">В наличии {{ seedling.stock }} шт.</p>
+        <p class="card-description__price">Цена {{ seedling.retail_price }}&#8381;</p>
+        <button class="card-description__button">В корзину</button>
+        <p class="card-description__text">
+          {{ seedling.full_description }}
+        </p>
+      </div>
+    </section>
+    </ul>
+  </section>
+{% endblock %}

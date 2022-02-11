@@ -115,6 +115,15 @@ class Seedling(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse(
+            'seedlings:seedling_page',
+            kwargs={
+                'category_slug': self.category.slug,
+                'seedling_slug': self.slug
+            }
+        )
+
 
 class Swiper(models.Model):
     title = models.CharField(

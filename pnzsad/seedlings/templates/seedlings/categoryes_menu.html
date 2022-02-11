@@ -1,0 +1,14 @@
+<div class="categories">
+  <a href="#" class="categories__button-title">{{ current_category }}</a>
+    <span class="categories__current">{{ current_category }}</span>
+    <ul class="categories__list">
+      <li class="categories__item">
+        <a href="{% url 'seedlings:seedlings_all' %}" class="categories__button categories__button_active">Все категории</a>
+    </li>
+  {% for category in categoryes %}
+    <li class="categories__item">
+      <a href="{{ category.get_absolute_url }}" class="categories__button">{{ category.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
