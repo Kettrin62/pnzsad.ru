@@ -13,21 +13,18 @@ def get_paginator_page(request, objects):
 
 
 def index(request):
-    categoryes = Category.objects.all()
     swiper = Swiper.objects.filter(available=True).values('text', 'image')
 
     return render(
         request,
         'seedlings/index.html',
         {
-            'categoryes': categoryes,
             'swiper': swiper
         }
     )
 
 
 def seedlings(request, category_slug=None):
-    categoryes = Category.objects.all()
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -47,7 +44,6 @@ def seedlings(request, category_slug=None):
             request,
             'seedlings/seedling_cards.html',
             {
-                'categoryes': categoryes,
                 'current_category': category,
                 'cards': cards
             }
@@ -55,7 +51,6 @@ def seedlings(request, category_slug=None):
 
 
 def seedling_page(request, category_slug, seedling_slug):
-    categoryes = Category.objects.all()
     category = get_object_or_404(Category, slug=category_slug)
     seedling = get_object_or_404(Seedling, slug=seedling_slug)
 
@@ -63,7 +58,6 @@ def seedling_page(request, category_slug, seedling_slug):
             request,
             'seedlings/seedling_page.html',
             {
-                'categoryes': categoryes,
                 'current_category': category,
                 'seedling': seedling
             }
