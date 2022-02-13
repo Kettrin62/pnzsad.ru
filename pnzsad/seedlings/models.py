@@ -124,12 +124,6 @@ class Seedling(models.Model):
             }
         )
 
-    def get_current_price(self, request):
-        # if request.user.is_wholesaler:
-        #     return self.wholesale_price
-        # return self.retail_price
-        return 'request'
-
 
 class Swiper(models.Model):
     title = models.CharField(
