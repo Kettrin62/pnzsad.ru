@@ -7,6 +7,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 COUNT_SEEDLINGS = 6
 
+CART_SESSION_ID = 'cart'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -17,6 +19,8 @@ SECRET_KEY = 'django-insecure-zbm)*rm58aq$e-+n78z9)ty&exjh@1$u+2m5+^$ygzll1nlwm4
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+INTERNAL_IPS = ['127.0.0.1',]
 
 
 # Application definition
@@ -30,6 +34,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'seedlings.apps.SeedlingsConfig',
     'django.contrib.staticfiles',
+    'debug_toolbar',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -40,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'pnzsad.urls'
@@ -57,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'seedlings.context_processors.get_year',
             ],
         },
     },

@@ -14,7 +14,6 @@ const listCategoriesElement = bodyElement.querySelector('.categories__list');
 const categoriesItemLinks = bodyElement.querySelectorAll('.categories__button');
 // находим наименование активной категории
 const currentCategoriesElement = bodyElement.querySelector('.categories__current');
-console.log(currentCategoriesElement.textContent);
 
 // swiper
 const swiper = new Swiper('.swiper', {
