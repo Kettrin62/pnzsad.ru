@@ -9,7 +9,7 @@ from .forms import CartEditForm
 def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Seedling, id=product_id)
-    cart.add(product=product)
+    cart.add(product=product, request=request)
     return redirect(request.META.get('HTTP_REFERER'))
 
 
@@ -27,14 +27,16 @@ def cart_update(request, product_id):
     form = CartEditForm(request.POST)
     if form.is_valid():
         clean_data = form.cleaned_data
-        cart.add(product=product, quantity=clean_data['quantity'])
+        cart.add(
+            product=product, quantity=clean_data['quantity'], request=request
+        )
     return redirect('cart:cart_detail')
 
 
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
-        item['quantity'] = CartEditForm(
-            initial={'update_quantity_form': item['quantity']}
+        item['update_quantity_form'] = CartEditForm(
+            initial={'quantity': item['quantity']}
         )
     return render(request, 'cart/cart_detail.html', {'cart': cart})
