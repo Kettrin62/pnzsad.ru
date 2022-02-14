@@ -6,6 +6,6 @@ app_name = 'users'
 
 
 urlpatterns = [
-    path("signup/", views.SignUp.as_view(), name="signup"),
-    # path("", views.index_users, name="index_users"),
+    path('signup/', views.SignUp.as_view(), name='signup'),
+    # path('', views.index_users, name='index_users'),
 ]

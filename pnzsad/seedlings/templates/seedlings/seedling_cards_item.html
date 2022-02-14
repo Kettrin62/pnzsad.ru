@@ -13,7 +13,7 @@
       <p class="card__price">Цена {{ card.retail_price }}&#8381;</p>
     {% endif %}
     <a href="{{ card.get_absolute_url }}" class="card__button-cart">Подробнее</a>
-    <a href="#" class="card__button-cart">В корзину</a>
+    <a href="{% url 'cart:cart_add' card.pk %}" class="card__button-cart">В корзину</a>
   </div>
 </li>
 
