@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 
 from seedlings.models import Seedling
-from .cart import Cart
+from .cart import Cart, order_send
 from .forms import CartEditForm
 
 
@@ -40,3 +40,14 @@ def cart_detail(request):
             initial={'quantity': item['quantity']}
         )
     return render(request, 'cart/cart_detail.html', {'cart': cart})
+
+
+def order_gen(request):
+    cart = Cart(request)
+    for item in cart:
+        item['update_quantity_form'] = CartEditForm(
+            initial={'quantity': item['quantity']}
+        )
+    order_send('cart/test.html', {'cart': cart})
+    cart.clear()
+    return redirect('seedlings:index')

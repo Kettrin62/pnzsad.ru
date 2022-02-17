@@ -1,60 +1,79 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ru">
 {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="{% static 'pages/index.css' %}">
+  <title>Питомник Елизарова</title>
+</head>
 
-{% block title %}
-  Корзина покупок
-{% endblock %}
+<body class="page">
+  {% include 'includes/header.html' %}
+    <main class="content page__section">
 
-{% block content %}
-  <h1>Корзина покупок</h1>
-  <table class="cart">
-    <thead>
-      <tr>
-        <th>Картинка</th>
-        <th>Товар</th>
-        <th>Обновить кол-во</th>
-        <th>Удалить</th>
-        <th>Кол-во</th>
-        <th>Цена за шт</th>
-        <th>Общая стоимость</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in cart %}
-        {% with product=item.product %}
-          <tr>
-            <td>
-              <a href="{{ product.get_absolute_url }}">
-                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
-              </a>
-            </td>
-            <td>{{ product.name }}</td>
-            <td>
-              <form action="{% url 'cart:cart_update' product.id %}" method="post">
-                {{ item.update_quantity_form.quantity }}
-                {{ item.update_quantity_form.update }}
-                <input type="submit" value="Обновить">
-                {% csrf_token %}
-              </form>
-            </td>
-            <td><a href="{% url 'cart:cart_remove' product.id %}">Удалить</a></td>
-            <td>
-              {{ item.quantity }}
-            </td>
-            <td class="num">${{ item.price }}</td>
-            <td class="num">${{ item.total_price }}</td>
-          </tr>
-        {% endwith %}
-      {% endfor %}
-      <tr class="total">
-        <td>Всего</td>
-        <td colspan="4"></td>
-        <td class="num">${{ cart.get_total_price }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="text-right">
-    <a href="#" class="button light">В магазин</a>
-    <a href="#" class="button">Оформить заказ</a>
-  </p>
-{% endblock %}
+      {% block title %}
+        Корзина покупок
+      {% endblock %}
+
+      {% block content %}
+        <h1>Корзина покупок</h1>
+        <table class="cart">
+          <thead>
+            <tr>
+              <th>Картинка</th>
+              <th>Товар</th>
+              <th>Обновить кол-во</th>
+              <th>Удалить</th>
+              <th>Кол-во</th>
+              <th>Цена за шт</th>
+              <th>Общая стоимость</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in cart %}
+              {% with product=item.product %}
+                <tr>
+                  <td>
+                    <a href="{{ product.get_absolute_url }}">
+                      <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                    </a>
+                  </td>
+                  <td>{{ product.name }}</td>
+                  <td>
+                    <form action="{% url 'cart:cart_update' product.id %}" method="post">
+                      {{ item.update_quantity_form.quantity }}
+                      {{ item.update_quantity_form.update }}
+                      <input type="submit" value="Обновить">
+                      {% csrf_token %}
+                    </form>
+                  </td>
+                  <td><a href="{% url 'cart:cart_remove' product.id %}">Удалить</a></td>
+                  <td>
+                    {{ item.quantity }}
+                  </td>
+                  <td class="num">${{ item.price }}</td>
+                  <td class="num">${{ item.total_price }}</td>
+                </tr>
+              {% endwith %}
+            {% endfor %}
+            <tr class="total">
+              <td>Всего</td>
+              <td colspan="4"></td>
+              <td class="num">${{ cart.get_total_price }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-right">
+          <a href="{% url 'cart:order_gen' %}" class="button light">PDF</a>
+          <a href="#" class="button">Оформить заказ</a>
+        </p>
+      {% endblock %}
+    </main>
+    {% include 'includes/footer.html' %}
+    <script src="{% static 'pages/index.js' %}"></script>
+  </body>
+</html>
