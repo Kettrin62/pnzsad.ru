@@ -1,12 +1,12 @@
 <li class="card">
-  <a href="{{ card.get_absolute_url }}" class="card__button-card">
+  <a href="{{ card.get_absolute_url }}" class="card__button-card" style="background-image:url(/media/{{ card.image }})">
     <figure class="card__image" style="background-image:url(/media/{{ card.image }})">
       <figcaption class="card__caption">{{ card.title }}</figcaption>
     </figure>
   </a>
   <div class="card__discription">
     <p class="card__text">{{ card.short_description }}</p>
-    <p class="card__quantity">В наличии {{ card.stock }} шт.</p>
+    <p class="card__quantity">Всего {{ card.stock }} шт.</p>
     {% if user.is_wholesaler %}
       <p class="card__price">Цена {{ card.wholesale_price }}&#8381;</p>
     {% else %}
