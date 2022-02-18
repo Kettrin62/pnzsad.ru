@@ -20,7 +20,7 @@
         <a href="{% url 'cart:cart_detail' %}" class="nav__link">
           <img src="{% static 'images/cart.svg' %}" alt="Корзина" class="nav__image">
           <div class="nav__cart">
-            <p class="nav__count">1</p>
+            <p class="nav__count">{{ len_cart }}</p>
           </div>
         </a>
       </li>
