@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'seedlings.apps.SeedlingsConfig',
     'cart.apps.CartConfig',
     'django.contrib.staticfiles',
+    'ckeditor',
+    # 'ckeditor_uploader',
     'debug_toolbar',
 ]
 
@@ -128,9 +130,6 @@ LOGIN_REDIRECT_URL = 'seedlings:index'
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = (
-#     '/home/hash/DeV/pnzsad.ru/pnzsad/static/',
-# )
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -154,3 +153,36 @@ EMAIL_HOST_PASSWORD = '98hiy67GUG^78f'
 EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
+
+
+CKEDITOR_UPLOAD_PATH = "media/CKEditor/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        "skin": "moono-lisa",
+        "toolbar_Basic": [["Source", "-", "Bold", "Italic"]],
+        "toolbar_Full": [
+            [
+                "Styles",
+                "Format",
+                "Bold",
+                "Italic",
+                "Underline",
+                "Strike",
+                "SpellChecker",
+                "Undo",
+                "Redo",
+            ],
+            # ["Link", "Unlink", "Anchor"],
+            ["Image", "Flash", "Table", "HorizontalRule"],
+            ["TextColor", "BGColor"],
+            ["Smiley", "SpecialChar"],
+            ["Source"],
+        ],
+        "toolbar": "Full",
+        "height": 291,
+        "width": 835,
+        "filebrowserWindowWidth": 940,
+        "filebrowserWindowHeight": 725,
+     }
+}

@@ -1,9 +1,23 @@
+from cProfile import label
+from ckeditor.widgets import CKEditorWidget
+
+from django import forms
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from .models import Category, Seedling, Swiper, Comment
 
 EMPTY_VALUE = '-пусто-'
+
+
+class SeedlingAdminForm(forms.ModelForm):
+    full_description = forms.CharField(
+        label='Полное описание', widget=CKEditorWidget()
+    )
+
+    class Meta:
+        model = Seedling
+        fields = '__all__'
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -27,6 +41,7 @@ class SeedlingAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     empty_value_display = EMPTY_VALUE
     search_fields = ('title',)
+    form = SeedlingAdminForm
     list_filter = ('category', 'available', 'created', 'updated')
     list_editable = ('retail_price', 'wholesale_price', 'stock', 'available')
 

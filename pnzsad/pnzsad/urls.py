@@ -8,6 +8,7 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),
     path('auth/', include('django.contrib.auth.urls')),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('seedlings.urls', namespace='seedlings')),
 ]
 
