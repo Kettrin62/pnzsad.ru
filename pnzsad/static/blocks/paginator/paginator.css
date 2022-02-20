@@ -1,0 +1,85 @@
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-left: 262px;
+  padding-bottom: 30px;
+}
+
+.paginator__button-prev {
+  background-image: url(../../images/swiper-button-prev.svg);
+  width: 10px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.paginator__button-prev:hover {
+  opacity: .6;
+}
+
+.paginator__button-next {
+  background-image: url(../../images/swiper-button-next.svg);
+  width: 10px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-size: cover;
+  opacity: 1;
+}
+
+.paginator__button-next:hover {
+  opacity: .6;
+}
+
+.paginator__page {
+  font-size: 16px;
+  margin: 0;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+
+}
+
+.paginator__page_active {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+@media all and (max-width: 900px) {
+  .paginator {
+    margin-left: 182px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .paginator {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width: 610px) {
+  .paginator__button-prev {
+    width: 8px;
+    height: 14px;
+  }
+
+  .paginator__button-next {
+    width: 8px;
+    height: 14px;
+  }
+
+  .paginator__page {
+    font-size: 14px;
+  }
+
+  .paginator__page_active {
+    font-size: 18px;
+  }
+}

@@ -12,6 +12,8 @@
 @import url(../blocks/categories/categories.css);
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/card/card.css);
+@import url(../blocks/card-content/card-content.css);
 @import url(../blocks/card-description/card-description.css);
 @import url(../blocks/comments/comments.css);
+@import url(../blocks/paginator/paginator.css);
 @import url(../blocks/footer/footer.css);

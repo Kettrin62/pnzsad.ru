@@ -1,41 +1,21 @@
-{% if cards.has_other_pages %}
-  <div class="container">
-    <div class="row justify-content-center">
-      <nav>
-        <ul class="pagination">
-          {% if cards.has_previous %}
-            <li class="page-item">
-              <a class="page-link" href="?page={{ cards.previous_page_number }}">&laquo; Прwедыдущая</a>
-            </li>
-          {% else %}
-            <li class="page-item disabled">
-              <span class="page-link">&laquo; Предыдущая</span>
-            </li>
-          {% endif %}
-          {% for i in cards.paginator.page_range %}
-            {% if cards.number == i %}
-              <li class="page-item active">
-                <span class="page-link">{{ i }}
-                  <span class="sr-only">(текущая)</span>
-                </span>
-              </li>
-            {% else %}
-              <li class="page-item">
-                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-              </li>
-            {% endif %}
-          {% endfor %}
-          {% if cards.has_next %}
-            <li class="page-item">
-              <a class="page-link" href="?page={{ cards.next_page_number }}">Следующая &raquo;</a>
-            </li>
-          {% else %}
-            <li class="page-item disabled">
-              <span class="page-link">Следующая &raquo;</span>
-            </li>
-          {% endif %}
-        </ul>
-      </nav>
-    </div>
-  </div>
+{% if elements.has_other_pages %}
+  <section class="paginator">
+    {% if elements.has_previous %}
+      <a class="paginator__button-prev" href="?page={{ elements.previous_page_number }}"></a>
+    {% else %}
+      <div class="paginator__button-prev"></div>
+    {% endif %}
+    {% for i in elements.paginator.page_range %}
+      {% if elements.number == i %}
+        <div class="paginator__page paginator__page_active">{{ i }}</div>
+      {% else %}
+        <a class="paginator__page" href="?page={{ i }}">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if elements.has_next %}
+      <a class="paginator__button-next" href="?page={{ elements.next_page_number }}"></a>
+    {% else %}
+      <div class="paginator__button-next"></div>
+    {% endif %}
+  </section>
 {% endif %}

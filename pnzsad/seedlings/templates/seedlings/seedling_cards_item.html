@@ -1,19 +1,19 @@
 <li class="card">
-  <a href="{{ card.get_absolute_url }}" class="card__button-card" style="background-image:url(/media/{{ card.image }})">
-    <figure class="card__image" style="background-image:url(/media/{{ card.image }})">
-      <figcaption class="card__caption">{{ card.title }}</figcaption>
+  <a href="{{ element.get_absolute_url }}" class="card__button-card" style="background-image:url(/media/{{ element.image }})">
+    <figure class="card__image" style="background-image:url(/media/{{ element.image }})">
+      <figcaption class="card__caption">{{ element.title }}</figcaption>
     </figure>
   </a>
   <div class="card__discription">
-    <p class="card__text">{{ card.short_description }}</p>
-    <p class="card__quantity">Всего {{ card.stock }} шт.</p>
+    <p class="card__text">{{ element.short_description }}</p>
+    <p class="card__quantity">Всего {{ element.stock }} шт.</p>
     {% if user.is_wholesaler %}
-      <p class="card__price">Цена {{ card.wholesale_price }}&#8381;</p>
+      <p class="card__price">Цена {{ element.wholesale_price }}&#8381;</p>
     {% else %}
-      <p class="card__price">Цена {{ card.retail_price }}&#8381;</p>
+      <p class="card__price">Цена {{ element.retail_price }}&#8381;</p>
     {% endif %}
     <a href="{{ card.get_absolute_url }}" class="card__button-cart">Подробнее</a>
-    <a href="{% url 'cart:cart_add' card.pk %}" class="card__button-cart">В корзину</a>
+    <a href="{% url 'cart:cart_add' element.pk %}" class="card__button-cart">В корзину</a>
   </div>
 </li>
 

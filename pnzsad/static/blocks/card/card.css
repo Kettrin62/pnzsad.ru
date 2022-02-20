@@ -14,7 +14,7 @@
   border-radius: 5px;
   cursor: pointer;
   display: block;
-  height: 100%;
+  /* height: 100%; */
   padding: 0;
   width: 100%;
   transition: opacity .3s ease-in-out;
@@ -153,6 +153,10 @@
     grid-template-columns: 50% 50%;
   }
 
+  .card__button-card {
+    height: 100%;
+  }
+
   .card__caption {
     font-size: 15px;
     font-weight: 500;
@@ -214,5 +218,6 @@
     min-height: 25px;
     font-size: 12px;
     font-weight: 500;
+    
   }
 }

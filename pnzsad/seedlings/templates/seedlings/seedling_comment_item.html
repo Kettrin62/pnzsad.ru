@@ -1,0 +1,5 @@
+<div class="comments__container">
+  <h4 class="comments__name">{{ comment.author_name }}</h4>
+  <p class="comments__data">добавлено {{ comment.created|date:"d E Y" }}г.</p>
+  <p class="comments__text">{{ comment.text }}</p>
+</div>

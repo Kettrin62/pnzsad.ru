@@ -54,6 +54,11 @@
 @media all and (max-width: 960px) {
   .footer {
     gap: 30px;
+    align-items: start;
+  }
+
+  .footer__copy {
+    margin-top: 20px;
   }
 
   .footer__list {

@@ -6,6 +6,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 COUNT_SEEDLINGS = 6
+COUNT_COMMENTS = 3
 
 CART_SESSION_ID = 'cart'
 
@@ -155,7 +156,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
-CKEDITOR_UPLOAD_PATH = "media/CKEditor/"
+CKEDITOR_UPLOAD_PATH = "media/UPloads/"
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -163,8 +164,8 @@ CKEDITOR_CONFIGS = {
         "toolbar_Basic": [["Source", "-", "Bold", "Italic"]],
         "toolbar_Full": [
             [
-                "Styles",
-                "Format",
+                # "Styles",
+                # "Format",
                 "Bold",
                 "Italic",
                 "Underline",
@@ -174,15 +175,15 @@ CKEDITOR_CONFIGS = {
                 "Redo",
             ],
             # ["Link", "Unlink", "Anchor"],
-            ["Image", "Flash", "Table", "HorizontalRule"],
-            ["TextColor", "BGColor"],
-            ["Smiley", "SpecialChar"],
-            ["Source"],
+            # ["Image", "Flash", "Table", "HorizontalRule"],
+            # ["TextColor", "BGColor"],
+            ["SpecialChar"],
+            # ["Source"],
         ],
         "toolbar": "Full",
-        "height": 291,
-        "width": 835,
+        "height": 290,
+        "width": 680,
         "filebrowserWindowWidth": 940,
         "filebrowserWindowHeight": 725,
-     }
+     },
 }

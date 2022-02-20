@@ -1,19 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-  <section class="plants">
+  <section class="card-content">
     {% include "seedlings/categories_menu.html" %}
-    <section class="card-description">
+    <article class="card-description">
       <img src="/media/{{ seedling.image }}" alt="{{ seedling.title }}" class="card-description__image">
-      <div class="card-description__caption">
-        <h3 class="card-description__title">{{ seedling.title }}</h3>
+      <h3 class="card-description__title">{{ seedling.title }}</h3>
+      <div class="card-description__price-container">
         <p class="card-description__quanity">В наличии {{ seedling.stock }} шт.</p>
-        <p class="card-description__price">Цена {{ seedling.retail_price }}&#8381;</p>
-        <button class="card-description__button">В корзину</button>
-        <p class="card-description__text">
-          {{ seedling.full_description }}
-        </p>
+        {% if user.is_wholesaler %}
+          <p class="card-description__price">Цена {{ seedling.wholesale_price }}&#8381;</p>
+        {% else %}
+          <p class="card-description__price">Цена {{ seedling.retail_price }}&#8381;</p>
+        {% endif %}
+        <a href="{% url 'cart:cart_add' seedling.pk %}" class="card-description__button">В корзину</a>
       </div>
-    </section>
-    </ul>
+      <p class="card-description__caption">
+          {{ seedling.full_description | safe }}
+      </p>
+    </article>
+    {% if elements %}
+      <hr class="card-description__line">
+    {% else %}
+    {% endif %}
+    <article class="comments">
+      <button type="button" class="comments__button">Добавить комментарий</button>
+      {% for comment in elements %}
+        {% include "seedlings/seedling_comment_item.html" %}
+      {% endfor %}
+    </article>
   </section>
 {% endblock %}
