@@ -1,14 +1,12 @@
-import os
 import io
-from xhtml2pdf import pisa
+import os
 from decimal import Decimal
 
 from django.conf import settings
-from django.template.loader import get_template
 from django.core.mail import EmailMessage
-
+from django.template.loader import get_template
 from seedlings.models import Seedling
-
+from xhtml2pdf import pisa
 
 # def get_order_file_path(file_name):
 #     if not os.path.exists(settings.ORDER_PDF_DIR):

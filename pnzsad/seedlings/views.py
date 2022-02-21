@@ -1,8 +1,9 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import HttpResponse, get_object_or_404, render
 
-from .models import Category, Swiper, Seedling, Comment
-from pnzsad.settings import COUNT_SEEDLINGS, COUNT_COMMENTS
+from pnzsad.settings import COUNT_COMMENTS, COUNT_SEEDLINGS
+
+from .models import Category, Comment, Seedling, Swiper
 
 
 def get_paginator_page(request, objects, count):

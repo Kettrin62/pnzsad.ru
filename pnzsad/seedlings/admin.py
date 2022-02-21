@@ -1,11 +1,11 @@
 from cProfile import label
-from ckeditor.widgets import CKEditorWidget
 
+from ckeditor.widgets import CKEditorWidget
 from django import forms
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Category, Seedling, Swiper, Comment
+from .models import Category, Comment, Seedling, Swiper
 
 EMPTY_VALUE = '-пусто-'
 

@@ -55,6 +55,10 @@
   transition: transform .3s ease-in-out;
   text-decoration: none;
   justify-self: end;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* grid-row: 2/3; */
   /* align-items: center; */
 }

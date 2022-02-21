@@ -20,6 +20,10 @@
   transition: transform .3s ease-in-out;
   text-decoration: none;
   margin-bottom: 16px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .comments__button:hover {
@@ -30,7 +34,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
   justify-content: space-between;
-  
+  width: 100%;
 }
 
 .comments__name {
@@ -52,6 +56,12 @@
   margin: 10px 0 20px;
   text-align: justify;
 }
+
+.comments__paginator {
+  align-self: center;
+}
+
+
 
 @media all and (max-width: 500px) {
   .comments__text {

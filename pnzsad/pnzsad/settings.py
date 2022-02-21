@@ -1,12 +1,15 @@
 import os
-
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-COUNT_SEEDLINGS = 6
-COUNT_COMMENTS = 3
+COUNT_SEEDLINGS = 8
+COUNT_COMMENTS = 6
 
 CART_SESSION_ID = 'cart'
 
@@ -14,12 +17,12 @@ CART_SESSION_ID = 'cart'
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zbm)*rm58aq$e-+n78z9)ty&exjh@1$u+2m5+^$ygzll1nlwm4'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -88,7 +91,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    # 'default': {
+    #     'ENGINE': os.environ.get('DB_ENGINE', default='django.db.backends.postgresql'),
+    #     'NAME': os.environ.get('DB_NAME'),
+    #     'USER': os.environ.get('POSTGRES_USER'),
+    #     'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+    #     'HOST': os.environ.get('DB_HOST'),
+    #     'PORT': os.environ.get('DB_PORT'),
+    # }
 }
 
 
@@ -145,13 +156,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
 
-EMAIL_HOST_USER = 'EsYA.Specsnab@gmail.com'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 
-EMAIL_HOST_PASSWORD = '98hiy67GUG^78f'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-EMAIL_PORT = 587
+EMAIL_PORT = os.getenv('EMAIL_PORT')
 
 EMAIL_USE_TLS = True
 

@@ -1,7 +1,7 @@
 import datetime as dt
 
-from seedlings.models import Category
 from cart.cart import Cart
+from seedlings.models import Category
 
 
 def get_year(request):
