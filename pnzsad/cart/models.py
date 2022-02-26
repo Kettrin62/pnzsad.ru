@@ -29,8 +29,14 @@ class Order(models.Model):
         null=True,
         verbose_name='Населенный пункт',
     )
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Создан',
+    )
+    updated = models.DateTimeField(
+        auto_now=True,
+        verbose_name='Обновлён',
+    )
     comment = models.CharField(
         max_length=50,
         blank=True,
@@ -73,7 +79,7 @@ class OrderItem(models.Model):
         default=1,
         verbose_name='Количество',
     )
-    
+
     class Meta:
         verbose_name = 'Саженец'
         verbose_name_plural = 'Саженцы'
