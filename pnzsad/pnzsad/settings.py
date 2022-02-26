@@ -9,7 +9,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 COUNT_SEEDLINGS = 8
-COUNT_COMMENTS = 6
+COUNT_COMMENTS = 3
 
 CART_SESSION_ID = 'cart'
 

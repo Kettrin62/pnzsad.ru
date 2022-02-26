@@ -5,6 +5,11 @@ from pnzsad.settings import COUNT_COMMENTS, COUNT_SEEDLINGS
 
 from .models import Category, Comment, Seedling, Swiper
 
+PAGINATOR_CLASS = {
+    'seedlings': 'seedlings',
+    'seedling_page': 'seedling_page',
+}
+
 
 def get_paginator_page(request, objects, count):
     paginator = Paginator(objects, count)
@@ -46,7 +51,8 @@ def seedlings(request, category_slug=None):
             'seedlings/seedling_cards.html',
             {
                 'current_category': category,
-                'elements': cards
+                'elements': cards,
+                'paginator_class': PAGINATOR_CLASS['seedlings']
             }
         )
 
@@ -64,6 +70,7 @@ def seedling_page(request, category_slug, seedling_slug):
             {
                 'current_category': category,
                 'seedling': seedling,
-                'elements': comments
+                'elements': comments,
+                'paginator_class': PAGINATOR_CLASS['seedling_page']
             }
         )

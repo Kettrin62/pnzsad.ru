@@ -15,10 +15,8 @@
     <main class="content page__section">
       {% block content %}
       {% endblock %}
-    </main>
-    <div>
       {% include 'includes/paginator.html' %}
-    </div>
+    </main>
     {% include 'includes/footer.html' %}
     <script src="{% static 'pages/index.js' %}"></script>
   </body>
