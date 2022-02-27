@@ -71,6 +71,20 @@
           <a href="{% url 'cart:order_gen' %}" class="button light">PDF</a>
           <a href="#" class="button">Оформить заказ</a>
         </p>
+
+
+        <form form action="." method="post">
+          {% csrf_token %}
+          <div class="card-body">
+            <div class="form-group">
+              {{ order_form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+          </div>
+        </form>
+
+
+
       {% endblock %}
     </main>
     {% include 'includes/footer.html' %}

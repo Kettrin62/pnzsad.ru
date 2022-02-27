@@ -24,6 +24,19 @@
     {% endif %}
     <article class="comments">
       <button type="button" class="comments__button">Добавить комментарий</button>
+
+
+      <form form action="." method="post">
+      {% csrf_token %}
+      <div class="card-body">
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </div>
+    </form>
+
+
       {% for comment in elements %}
         {% include "seedlings/seedling_comment_item.html" %}
       {% endfor %}

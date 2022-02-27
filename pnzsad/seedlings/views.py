@@ -1,9 +1,10 @@
 from django.core.paginator import Paginator
-from django.shortcuts import HttpResponse, get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 
 from pnzsad.settings import COUNT_COMMENTS, COUNT_SEEDLINGS
 
-from .models import Category, Comment, Seedling, Swiper
+from .forms import CommentForm
+from .models import Category, Seedling, Swiper
 
 PAGINATOR_CLASS = {
     'seedlings': 'seedlings',
@@ -60,8 +61,23 @@ def seedlings(request, category_slug=None):
 def seedling_page(request, category_slug, seedling_slug):
     category = get_object_or_404(Category, slug=category_slug)
     seedling = get_object_or_404(Seedling, slug=seedling_slug)
-    comments = seedling.comments.all()
 
+    author_name = ''
+    if request.user.is_authenticated:
+        author_name = request.user.first_name
+    form = CommentForm(
+        request.POST or None,
+        initial={'author_name': author_name}
+    )
+    if form.is_valid():
+        new_comment = form.save(commit=False)
+        new_comment.seedling = seedling
+        form.save()
+        return redirect(
+            request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found')
+        )
+
+    comments = seedling.comments.all()
     comments = get_paginator_page(request, comments, COUNT_COMMENTS)
 
     return render(
@@ -71,6 +87,7 @@ def seedling_page(request, category_slug, seedling_slug):
                 'current_category': category,
                 'seedling': seedling,
                 'elements': comments,
+                'form': form,
                 'paginator_class': PAGINATOR_CLASS['seedling_page']
             }
         )
