@@ -1,3 +1,5 @@
+from phonenumber_field.modelfields import PhoneNumberField
+
 from django.db import models
 
 from seedlings.models import Seedling
@@ -10,7 +12,13 @@ class Order(models.Model):
     last_name = models.CharField(
         max_length=50, verbose_name='Фамилия',
     )
-    email = models.EmailField()
+    phoneNumber = PhoneNumberField(
+        verbose_name='Телефон',
+    )
+    email = models.EmailField(
+        blank=True,
+        null=True,
+    )
     postal_code = models.CharField(
         max_length=20,
         blank=True,

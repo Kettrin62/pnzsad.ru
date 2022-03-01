@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'seedlings.apps.SeedlingsConfig',
     'cart.apps.CartConfig',
     'django.contrib.staticfiles',
+    'about',
     'ckeditor',
     # 'ckeditor_uploader',
     'debug_toolbar',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

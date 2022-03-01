@@ -14,6 +14,15 @@ const listCategoriesElement = bodyElement.querySelector('.categories__list');
 const categoriesItemLinks = bodyElement.querySelectorAll('.categories__button');
 // находим наименование активной категории
 const currentCategoriesElement = bodyElement.querySelector('.categories__current');
+// находим кнопку Добавить комментарий
+const buttonAddCommentsElement = bodyElement.querySelector('.comments__button');
+// находим форму комментарий
+const formCommentsElement = bodyElement.querySelector('.form_option_comments');
+// находим кнопку Оформить заказ
+const buttonOrderElement = bodyElement.querySelector('.cart__button-order');
+// находим форму оформления заказа
+const formOrderElement = bodyElement.querySelector('.form_option_order');
+
 
 // swiper
 const swiper = new Swiper('.swiper', {
@@ -43,23 +52,29 @@ const swiper = new Swiper('.swiper', {
 // кнопка меню в мобильной версии
 // функция открытия меню
 function openMenu() {
+  console.log(menuElement);
   menuElement.classList.add('menu_opened');
 }
 
 // функция закрытия меню
 function closeMenu() {
+  console.log(menuElement);
   menuElement.classList.remove('menu_opened');
 }
 
 // обработчик клика по кнопке меню
-menuButton.addEventListener('click', () => {
-  openMenu();
-});
+if (menuButton) {
+  menuButton.addEventListener('click', () => {
+    openMenu();
+  });
+}
 
 // обработчик клика по кнопке закрытия меню
-menuCloseButton.addEventListener('click', () => {
-  closeMenu();
-});
+if (menuCloseButton) {
+  menuCloseButton.addEventListener('click', () => {
+    closeMenu();
+  });
+}
 
 
 // выпадающая кнопка категорий
@@ -68,10 +83,13 @@ function openListButtons() {
   listCategoriesElement.classList.toggle('categories__list_opened');
 }
 
-// обработчик клика по кнопке категорий
-buttonCategoriesElement.addEventListener('click', () => {
-  openListButtons();
-})
+if (buttonCategoriesElement) {
+  // обработчик клика по кнопке категорий
+  buttonCategoriesElement.addEventListener('click', () => {
+    openListButtons();
+  })
+}
+
 
 // функция обнуления ссылок
 function inactiveLink(link) {
@@ -91,3 +109,44 @@ categoriesItemLinks.forEach((item) => {
     activeLink(item)
   } else inactiveLink(item);
 });
+
+
+// функция открытия/закрытия формы 
+function toggleForm(el, nameClass) {
+  // formCommentsElement.classList.toggle('form_opened');
+  el.classList.toggle(nameClass);
+}
+
+// функция изменения текста кнопки
+// const changeText = (button, text) => {
+//   if (button.textContent === 'Добавить комментарий') {
+//     button.textContent = 'Скрыть форму';
+//   } else {
+//     button.textContent = 'Добавить комментарий';
+//   };
+// }
+const changeText = (button, text) => {
+  if (button.textContent === text) {
+    button.textContent = 'Скрыть форму';
+  } else {
+    button.textContent = text;
+  };
+}
+
+// обработчик клика по кнопке Добавить комментарий
+if (buttonAddCommentsElement) {
+  // обработчик клика по кнопке
+  buttonAddCommentsElement.addEventListener('click', () => {
+    toggleForm(formCommentsElement, 'form_opened');
+    changeText(buttonAddCommentsElement, 'Добавить комментарий');
+  });
+}
+
+// обработчик клика по кнопке Оформить заказ
+if (buttonOrderElement) {
+  // обработчик клика по кнопке
+  buttonOrderElement.addEventListener('click', () => {
+    toggleForm(formOrderElement, 'form_opened');
+    changeText(buttonOrderElement, 'Оформить заказ');
+  });
+}

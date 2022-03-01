@@ -12,12 +12,13 @@ class OrderItemInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'first_name', 'last_name', 'email',
-        'comment', 'created', 'updated',
+        'id', 'first_name', 'last_name', 'phoneNumber', 'email',
+        'created', 'comment', 'updated',
     )
     list_filter = ('created', 'updated', 'comment')
     inlines = [OrderItemInline]
     empty_value_display = EMPTY_VALUE
+    list_editable = ('comment',)
 
 
 admin.site.register(Order, OrderAdmin)

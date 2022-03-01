@@ -14,7 +14,7 @@
         <a href="#" class="nav__link">О питомнике</a>
       </li>
       <li class="nav__link">
-        <a href="#" class="nav__link">Контакты</a>
+        <a href="{% url 'about:contacts' %}" class="nav__link">Контакты</a>
       </li>
       <li class="nav__link">
         <a href="{% url 'cart:cart_detail' %}" class="nav__link">
@@ -63,7 +63,7 @@
       </a>
     </li>
     <li class="nav__link">
-      <a href="#" class="nav__link">
+      <a href="{% url 'login' %}" class="nav__link">
         <img src="{% static 'images/account.svg' %}" alt="Личный кабинет" class="nav__image">
       </a>
     </li>
@@ -87,7 +87,7 @@
           <a href="#" class="nav__link">О питомнике</a>
         </li>
         <li class="nav__link">
-          <a href="#" class="nav__link">Контакты</a>
+          <a href="{% url 'about:contacts' %}" class="nav__link">Контакты</a>
         </li>
       </ul>
     </nav>

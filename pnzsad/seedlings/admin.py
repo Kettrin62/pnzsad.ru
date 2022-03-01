@@ -70,6 +70,7 @@ class CommentAdmin(admin.ModelAdmin):
     empty_value_display = EMPTY_VALUE
     search_fields = ('author_name', 'text',)
     list_filter = ('seedling', 'created',)
+    list_editable = ('text',)
 
 
 admin.site.register(Category, CategoryAdmin)

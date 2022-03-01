@@ -1,0 +1,19 @@
+.order {
+  margin-bottom: 30px;
+}
+
+.order__list {
+  list-style-type: decimal;
+  margin: 0;
+  padding: 0;
+}
+
+.order__item {
+  display: flex;
+  gap: 20px;
+}
+
+.order__input {
+  height: 20px;
+  width: min-content;
+}

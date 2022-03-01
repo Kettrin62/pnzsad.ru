@@ -1,0 +1,125 @@
+.form {
+  width: 600px;
+  display: none;
+
+  /* opacity: 0;
+  transition: opacity 1s linear; */
+}
+
+.form__info {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form__item {
+  font-family: 'Inter', Arial, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.21;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+
+.form__item:focus {
+  outline-color: #fff6c5;
+}
+
+.form-edit__item::placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}
+
+.form-edit__item::-webkit-input-placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}
+
+.form-edit__item::-moz-placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}
+
+.form-edit__item::-ms-input-placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}
+
+.form__item_error {
+  border-bottom-color: #FF0000;
+}
+
+.form__item_el_comments {
+  background: #fff;
+  height: 150px;
+  font-size: 14px;
+  padding: 6px 6px 4px;
+}
+
+.form__button {
+  font-size: 16px;
+  line-height: 1.22;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: #cecaca;
+  width: 230px;
+  min-height: 30px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid rgba(84, 84, 84, 0.7);
+  font-weight: 500;
+  transition: transform .3s ease-in-out;
+  color: inherit;
+  align-self: flex-end;
+  margin-top: 5px;
+}
+
+.form-edit__button-save:hover {
+  opacity: .8;
+}
+
+.form-edit__button-save:disabled {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+}
+
+.form_opened {
+  display: block;
+  /* opacity: 1;
+  transition: opacity 1s linear; */
+}
+
+@media all and (max-width: 640px) {
+  .form {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .form__button {
+    font-size: 14px;
+    width: 200px;
+  }
+}
