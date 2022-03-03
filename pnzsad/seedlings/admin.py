@@ -10,7 +10,8 @@ EMPTY_VALUE = '-пусто-'
 
 class SeedlingAdminForm(forms.ModelForm):
     full_description = forms.CharField(
-        label='Полное описание', widget=CKEditorWidget(config_name='default')
+        label='Полное описание',
+        widget=CKEditorWidget(config_name='seedlint_admin')
     )
 
     class Meta:

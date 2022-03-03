@@ -7,5 +7,5 @@ app_name = 'about'
 
 urlpatterns = [
     path('contacts', views.ContactsView.as_view(), name='contacts'),
-    #path('', views.about, name='about'),
+    path('', views.about, name='about'),
 ]

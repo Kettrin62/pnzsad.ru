@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'about',
     'ckeditor',
-    # 'ckeditor_uploader',
+    'ckeditor_uploader',
     'debug_toolbar',
     'phonenumber_field',
 ]
@@ -169,7 +169,9 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_USE_TLS = True
 
 
-CKEDITOR_UPLOAD_PATH = "media/UPloads/"
+CKEDITOR_UPLOAD_PATH = "UPloads/"
+CKEDITOR_BROWSE_SHOW_DIRS = True
+
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -177,8 +179,8 @@ CKEDITOR_CONFIGS = {
         "toolbar_Basic": [["Source", "-", "Bold", "Italic"]],
         "toolbar_Full": [
             [
-                # "Styles",
-                # "Format",
+                "Styles",
+                "Format",
                 "Bold",
                 "Italic",
                 "Underline",
@@ -187,16 +189,78 @@ CKEDITOR_CONFIGS = {
                 "Undo",
                 "Redo",
             ],
-            # ["Link", "Unlink", "Anchor"],
-            # ["Image", "Flash", "Table", "HorizontalRule"],
-            # ["TextColor", "BGColor"],
+            ["Link", "Unlink", "Anchor"],
+            ["Image", "Flash", "Table", "HorizontalRule"],
+            ["TextColor", "BGColor"],
             ["SpecialChar"],
-            # ["Source"],
+            ["Source"],
         ],
         "toolbar": "Full",
         "height": 290,
         "width": 680,
         "filebrowserWindowWidth": 940,
         "filebrowserWindowHeight": 725,
+     },
+    'seedlint_admin': {
+        "skin": "moono-lisa",
+        "toolbar_Basic": [["Source", "-", "Bold", "Italic"]],
+        "toolbar_Full": [
+            [
+                "Bold",
+                "Italic",
+                "Underline",
+                "Strike",
+                "SpellChecker",
+                "Undo",
+                "Redo",
+            ],
+            ["SpecialChar"],
+        ],
+        "toolbar": "Full",
+        "height": 290,
+        "width": 680,
+        "filebrowserWindowWidth": 940,
+        "filebrowserWindowHeight": 725,
+     },
+    'about_admin': {
+        "skin": "moono-lisa",
+        'toolbar': [
+            ['Undo', 'Redo',
+             '-', 'Bold', 'Italic', 'Underline',
+             '-', 'Link', 'Unlink', 'Anchor',
+             '-', 'Format',
+             '-', 'Maximize',
+             '-', 'Table',
+             '-', 'Image',
+             '-', 'Source',
+             '-', 'NumberedList', 'BulletedList'
+             ],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+             '-', 'Font', 'FontSize', 'TextColor',
+             '-', 'Outdent', 'Indent',
+             '-', 'HorizontalRule',
+             '-', 'Blockquote'
+             ],
+            ['Youtube', '-', 'Preview']
+        ],
+        'height': 800,
+        'width': '100%',
+        'toolbarCanCollapse': False,
+        'forcePasteAsPlainText': True,
+        'extraPlugins': ','.join([
+            'uploadimage',
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            'autogrow',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath',
+            'youtube',
+        ]),
      },
 }

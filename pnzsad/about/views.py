@@ -1,4 +1,5 @@
 from django.views.generic.base import TemplateView
+from django.shortcuts import render
 
 from .models import About
 
@@ -8,5 +9,12 @@ class ContactsView(TemplateView):
 
 
 def about(request):
-    markup = About.objects.filter(id=1).first()
-    
+    markup = About.objects.all().first()
+
+    return render(
+            request,
+            'about/about.html',
+            {
+                'markup': markup.markup
+            }
+        )
