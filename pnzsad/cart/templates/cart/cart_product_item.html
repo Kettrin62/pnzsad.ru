@@ -1,0 +1,22 @@
+{% load user_filters %}
+<li class="cart__item">
+  <img src="/media/{{ product.image }}" alt="{{ product }}" class="cart__image">
+  <h3 class="cart__item-title">{{ product }}</h3>
+  <p class="cart__caption">{{ product.short_description }}</p>
+  <p class="cart__price">Цена&nbsp;{{ item.price }}&#8381;</p>
+  <p class="cart__available">Доступно:&nbsp;{{ product.stock }}</p>
+  
+  <div class="cart__input-item">
+    <form action="{% url 'cart:cart_update' product.id %}" method="post">
+        {% csrf_token %}
+        {{ item.update_quantity_form.quantity|addclass:'cart__input' }}
+        {{ item.update_quantity_form.update }}
+        <p class="cart__text">шт.</p>
+        <button class="cart__button">Применить</button>
+    </form>
+  </div>
+
+
+  <p class="cart__cost">Сумма&nbsp;{{ item.total_price }}&#8381;</p>
+  <a href="{% url 'cart:cart_remove' product.id %}" class="cart__button-delete"></a>
+</li>

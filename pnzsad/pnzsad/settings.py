@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'debug_toolbar',
     'phonenumber_field',
+    'core',
 ]
 
 MIDDLEWARE = [
