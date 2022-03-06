@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Войти">
-  </form>
-  <a href="/auth/password_reset/" class="button">сбросить</a>
+  {% load static %}
+  <section class="login222">
+    <img src="{% static 'images/login.gif' %}" alt="Пальцы набирают шифр" class="login__image">
+    <div class="login__content">
+      <h4>Для входа в учётку ведте важи учётные данные:</h4>
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Войти</button>
+      </form>
+      <a href="/auth/password_reset/" class="button">Сбросить</a>
+    </div>
+  </section>
 {% endblock %} 
