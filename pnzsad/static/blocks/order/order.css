@@ -1,19 +1,19 @@
 .order {
-  margin-bottom: 30px;
+  margin: 50px;
+}
+
+.order__title {
+  text-align: center;
+  text-decoration: underline;
 }
 
 .order__list {
   list-style-type: decimal;
-  margin: 0;
+  margin: 50px 0;
   padding: 0;
 }
 
 .order__item {
   display: flex;
-  gap: 20px;
-}
-
-.order__input {
-  height: 20px;
-  width: min-content;
+  gap: 40px;
 }

@@ -1,9 +1,46 @@
 {% extends "base.html" %}
-{% block title %}Зарегистрироваться{% endblock %}
 {% block content %}
-  <form method="post" action="{% url 'users:signup' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Зарегистрироваться">
-  </form>
+  {% load static %}
+  <section class="login">
+    <img src="{% static 'images/signup.gif' %}" alt="Отпечаток пальца" class="login__image">
+    <div class="login__content">
+      {% if form.errors%}
+          <ul>
+            {% for field, errors in form.errors.items %}
+              {% for error in errors %}
+                <div style="color: red">
+                  - {{ error }}
+                </div>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            <div style="margin: 10px 0">
+              <label for="{{ field.id_for_label }}">
+                {{ field.label }}
+                {% if field.field.required %}
+                  <span class="required">*</span>
+                {% endif %}
+              </label>
+              <div>
+                {{ field }}
+                {% if field.help_text %}
+                  <small id="{{ field.id_for_label }}-help">
+                    <br>{{ field.help_text|safe }}
+                  </small>
+                {% endif %}
+              </div>                
+            </div>
+          {% endfor %}
+          <div style="margin: 30px 0 0 0">       
+            <button type="submit">
+              Зарегистрироваться
+            </button>
+          </div>
+        </form>
+    </div>
+  </section>
 {% endblock %} 

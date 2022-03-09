@@ -24,6 +24,7 @@ const buttonOrderElement = bodyElement.querySelector('.cart__button-order');
 const formOrderElement = bodyElement.querySelector('.form_option_order');
 
 
+
 // swiper
 const swiper = new Swiper('.swiper', {
   // Optional parameters
@@ -139,7 +140,24 @@ if (buttonAddCommentsElement) {
   buttonAddCommentsElement.addEventListener('click', () => {
     toggleForm(formCommentsElement, 'form_opened');
     changeText(buttonAddCommentsElement, 'Добавить комментарий');
+    scrollToElement(formCommentsElement);
   });
+}
+
+function scrollToElement(el) {
+  // el.scrollIntoView(true);
+  const animationTime = 500;
+  const framesCount = 20;
+  let coordY = el.getBoundingClientRect().top + window.pageYOffset;
+  let scroller = setInterval(function() {
+    let scrollBy = coordY / framesCount;
+    if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+      window.scrollBy(0, scrollBy);
+    } else {
+      window.scrollTo(0, coordY);
+      clearInterval(scroller);
+    }
+  }, animationTime / framesCount);
 }
 
 // обработчик клика по кнопке Оформить заказ
@@ -148,5 +166,7 @@ if (buttonOrderElement) {
   buttonOrderElement.addEventListener('click', () => {
     toggleForm(formOrderElement, 'form_opened');
     changeText(buttonOrderElement, 'Оформить заказ');
+    scrollToElement(formOrderElement);
   });
 }
+

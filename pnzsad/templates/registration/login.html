@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
   {% load static %}
-  <section class="login222">
-    <img src="{% static 'images/login.gif' %}" alt="Пальцы набирают шифр" class="login__image">
+  <section class="login">
+    <img src="{% static 'images/login.gif' %}" alt="Пальцем набирает шифр" class="login__image">
     <div class="login__content">
-      <h4>Для входа в учётку ведте важи учётные данные:</h4>
+      <h4>Для входа в личный кабинет введите ваши учетные данные</h4>
       <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Войти</button>
+        <br>
+        <button type="submit" class="login__button">Войти</button>
+        <a href="/auth/password_reset/" class="login__button">Сбросить пароль</a>
+        <br>
+        <a href="/users/signup/" class="login__button">Зарегистрироваться</a>
       </form>
-      <a href="/auth/password_reset/" class="button">Сбросить</a>
     </div>
   </section>
 {% endblock %} 
