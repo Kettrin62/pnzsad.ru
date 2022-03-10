@@ -1,4 +1,3 @@
-from lib2to3.pytree import convert
 from django import template
 
 
@@ -14,5 +13,5 @@ def addclass(field, css):
 def int_view(value):
     try:
         return int(value)
-    except ValueError as err:
+    except BaseException as err:
         return err

@@ -146,7 +146,7 @@ if (buttonAddCommentsElement) {
 
 function scrollToElement(el) {
   // el.scrollIntoView(true);
-  const animationTime = 500;
+  const animationTime = 10;
   const framesCount = 20;
   let coordY = el.getBoundingClientRect().top + window.pageYOffset;
   let scroller = setInterval(function() {

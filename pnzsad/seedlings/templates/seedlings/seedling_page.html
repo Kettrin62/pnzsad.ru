@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load user_filters %}
   <section class="card-content">
     {% include "seedlings/categories_menu.html" %}
     <article class="card-description">
@@ -8,9 +9,9 @@
       <div class="card-description__price-container">
         <p class="card-description__quanity">В наличии {{ seedling.stock }} шт.</p>
         {% if user.is_wholesaler %}
-          <p class="card-description__price">Цена {{ seedling.wholesale_price }}&#8381;</p>
+          <p class="card-description__price">Цена {{ seedling.wholesale_price|int_view  }} &#8381;</p>
         {% else %}
-          <p class="card-description__price">Цена {{ seedling.retail_price }}&#8381;</p>
+          <p class="card-description__price">Цена {{ seedling.retail_price|int_view  }} &#8381;</p>
         {% endif %}
         <a href="{% url 'cart:cart_add' seedling.pk %}" class="card-description__button">В корзину</a>
       </div>
@@ -24,15 +25,38 @@
 
     <article class="comments">
       <a class="comments__button" href="#">Добавить комментарий</a>
+
+      {% if form.errors %}
+        {% for field in form %} 
+          {% for error in field.errors %}            
+            <div style="color: red">
+              - {{ error|escape }}
+            </div>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <div style="color: red">
+            - {{ error|escape }}
+          </div>
+        {% endfor %}
+      {% endif %}
       <form name="comments" class="form form_option_comments" action="." method="POST">
         {% csrf_token %}
         <fieldset class="form__info">
-          <label for="id_author_name" class="form__label">Имя</label>
-          <input type="text" id="id_author_name" name="author_name" class="form__item" minlength="2" maxlength="50" required>
-          <span class="form__item-error" id="author_name-error"></span>
-          <label for="id_text" class="form__label">Комментарий</label>
-          <textarea name="text" id="id_text" class="form__item form__item_el_comments" minlength="2" required></textarea>
-          <span class="form__item-error" id="text-error"></span>
+          {% for field in form %}
+            <label for="{{ field.id_for_label }}" class="form__label">
+              {{ field.label }}
+              {% if field.field.required %}
+                <span>*</span>
+              {% endif %}
+            </label>
+            {{ field|addclass:'form__item' }} 
+            {% if field.help_text %}
+              <small id="{{ field.id_for_label }}-help" class="form__item-error">
+                {{ field.help_text|safe }}
+              </small>
+            {% endif %}
+          {% endfor %}
           <button type="submit" class="form__button">
             Опубликовать
           </button>

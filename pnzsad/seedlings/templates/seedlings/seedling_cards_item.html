@@ -1,16 +1,17 @@
+{% load user_filters %}
 <li class="card">
   <a href="{{ element.get_absolute_url }}" class="card__button-card" style="background-image:url(/media/{{ element.image }})">
     <figure class="card__image" style="background-image:url(/media/{{ element.image }})">
       <figcaption class="card__caption">{{ element.title }}</figcaption>
     </figure>
   </a>
-  <div class="card__discription">
+  <div class="card__description">
     <p class="card__text">{{ element.short_description }}</p>
     <p class="card__quantity">Всего {{ element.stock }} шт.</p>
     {% if user.is_wholesaler %}
-      <p class="card__price">Цена {{ element.wholesale_price }}&#8381;</p>
+      <p class="card__price">Цена {{ element.wholesale_price|int_view }} &#8381;</p>
     {% else %}
-      <p class="card__price">Цена {{ element.retail_price }}&#8381;</p>
+      <p class="card__price">Цена {{ element.retail_price|int_view }} &#8381;</p>
     {% endif %}
     <a href="{{ card.get_absolute_url }}" class="card__button-cart">Подробнее</a>
     <a href="{% url 'cart:cart_add' element.pk %}" class="card__button-cart">В корзину</a>

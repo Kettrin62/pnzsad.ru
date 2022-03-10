@@ -55,6 +55,7 @@ def cart_detail(request):
         initial={
             'first_name': first_name,
             'last_name': last_name,
+            'phoneNumber': '+7',
             'email': email
         }
     )
@@ -79,7 +80,7 @@ def cart_detail(request):
         'cart/cart_detail.html',
         {
             'cart': cart,
-            'order_form': order_form
+            'form': order_form
         }
     )
 
