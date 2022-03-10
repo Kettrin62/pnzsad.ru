@@ -5,9 +5,37 @@
     <img src="{% static 'images/login.gif' %}" alt="Пальцем набирает шифр" class="login__image">
     <div class="login__content">
       <h4>Для входа в личный кабинет введите ваши учетные данные</h4>
+      {% if form.errors%}
+          <ul>
+            {% for field, errors in form.errors.items %}
+              {% for error in errors %}
+                <div style="color: red">
+                  - {{ error }}
+                </div>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        {% endif %}
       <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% for field in form %}
+          <div>
+            <label for="{{ field.id_for_label }}">
+              {{ field.label }}
+              {% if field.field.required %}
+                <span class="required">*</span>
+              {% endif %}
+            </label>
+            <div>
+              {{ field }}
+              {% if field.help_text %}
+                <small id="{{ field.id_for_label }}-help">
+                  {{ field.help_text|safe }}
+                </small>
+              {% endif %}
+            </div>                
+          </div>
+        {% endfor %}
         <br>
         <button type="submit" class="login__button">Войти</button>
         <a href="/auth/password_reset/" class="login__button">Сбросить пароль</a>

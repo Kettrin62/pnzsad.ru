@@ -1,3 +1,4 @@
+from lib2to3.pytree import convert
 from django import template
 
 
@@ -7,3 +8,11 @@ register = template.Library()
 @register.filter
 def addclass(field, css):
     return field.as_widget(attrs={'class': css})
+
+
+@register.filter
+def int_view(value):
+    try:
+        return int(value)
+    except ValueError as err:
+        return err

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load user_filters %}
   <section class="cart">
     <h2 class="cart__title">Корзина</h2>
     <ul class="cart__list">
@@ -12,7 +13,7 @@
 
 
     <div class="cart__total-item">
-      <p class="cart__total">Итого к оплате: 100500&#8381;</p>
+      <p class="cart__total">Итого к оплате: {{ cart.get_total_price|int_view }}&#8381;</p>
       <button class="cart__button-order">Оформить заказ</button>
       <div class="cart__order">
         <div class="cart__order-text"></div>

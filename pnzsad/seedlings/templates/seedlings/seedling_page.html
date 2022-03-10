@@ -20,23 +20,24 @@
     </article>
     {% if elements %}
       <hr class="card-description__line">
-    {% else %}
     {% endif %}
+
     <article class="comments">
-      <button type="button" class="comments__button">Добавить комментарий</button>
-
-
-      <form form action="." method="post">
-      {% csrf_token %}
-      <div class="card-body">
-        <div class="form-group">
-          {{ form.as_p }}
-        </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
-      </div>
-    </form>
-
-
+      <a class="comments__button" href="#">Добавить комментарий</a>
+      <form name="comments" class="form form_option_comments" action="." method="POST">
+        {% csrf_token %}
+        <fieldset class="form__info">
+          <label for="id_author_name" class="form__label">Имя</label>
+          <input type="text" id="id_author_name" name="author_name" class="form__item" minlength="2" maxlength="50" required>
+          <span class="form__item-error" id="author_name-error"></span>
+          <label for="id_text" class="form__label">Комментарий</label>
+          <textarea name="text" id="id_text" class="form__item form__item_el_comments" minlength="2" required></textarea>
+          <span class="form__item-error" id="text-error"></span>
+          <button type="submit" class="form__button">
+            Опубликовать
+          </button>
+        </fieldset>
+      </form>
       {% for comment in elements %}
         {% include "seedlings/seedling_comment_item.html" %}
       {% endfor %}
