@@ -1,0 +1,14 @@
+.card__price {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
+  justify-self: end;
+}
+
+@media all and (max-width: 610px) {
+  .card__price {
+    font-size: 12px;
+    margin: 0;
+    align-self: flex-end;
+  }
+}

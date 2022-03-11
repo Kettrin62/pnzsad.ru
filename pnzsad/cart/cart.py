@@ -149,3 +149,9 @@ def order_send(template, context):
     msg.send()
 
     return None
+
+
+def calculation_of_quantity(cart):
+    for item in cart:
+        item['product'].stock = item['product'].stock - item['quantity']
+        item['product'].save()

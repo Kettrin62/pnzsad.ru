@@ -1,21 +1,10 @@
-.login {
-  display: flex;
-  gap: 30px;
-  padding: 0 calc(25%/10) 20px calc(25%/10);
-}
-
-.login__image {
-  width: 50%;
-}
-
-.login__button {
+.card__button-cart {
   background-color: #cecaca;
-  width: 180px;
+  width: 95%;
   min-height: 30px;
   text-align: center;
   border-radius: 3px;
   border: 1px solid rgba(84, 84, 84, 0.7);
-  transition: opacity .3s ease-in-out;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
@@ -25,5 +14,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+}
+
+.card__button-cart:nth-of-type(2n) {
+  justify-self: end;
+}
+
+.card__button-cart:hover {
+  transform: scale(1.05, 1.05);
+}
+
+@media all and (max-width: 610px) {
+  .card__button-cart {
+    width: 90%;
+    min-height: 25px;
+    font-size: 12px;
+    font-weight: 500;
+  }
 }

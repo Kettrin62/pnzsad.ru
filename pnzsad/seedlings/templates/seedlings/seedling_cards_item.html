@@ -13,7 +13,7 @@
     {% else %}
       <p class="card__price">Цена {{ element.retail_price|int_view }} &#8381;</p>
     {% endif %}
-    <a href="{{ card.get_absolute_url }}" class="card__button-cart">Подробнее</a>
+    <a href="{{ element.get_absolute_url }}" class="card__button-cart">Подробнее</a>
     <a href="{% url 'cart:cart_add' element.pk %}" class="card__button-cart">В корзину</a>
   </div>
 </li>

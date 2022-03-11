@@ -21,7 +21,7 @@ const formCommentsElement = bodyElement.querySelector('.form_option_comments');
 // находим кнопку Оформить заказ
 const buttonOrderElement = bodyElement.querySelector('.cart__button-order');
 // находим форму оформления заказа
-const formOrderElement = bodyElement.querySelector('.form_option_order');
+const formOrderElement = bodyElement.querySelector('.cart__order');
 
 
 
@@ -118,14 +118,7 @@ function toggleForm(el, nameClass) {
   el.classList.toggle(nameClass);
 }
 
-// функция изменения текста кнопки
-// const changeText = (button, text) => {
-//   if (button.textContent === 'Добавить комментарий') {
-//     button.textContent = 'Скрыть форму';
-//   } else {
-//     button.textContent = 'Добавить комментарий';
-//   };
-// }
+
 const changeText = (button, text) => {
   if (button.textContent === text) {
     button.textContent = 'Скрыть форму';
@@ -145,26 +138,26 @@ if (buttonAddCommentsElement) {
 }
 
 function scrollToElement(el) {
-  // el.scrollIntoView(true);
-  const animationTime = 10;
-  const framesCount = 20;
-  let coordY = el.getBoundingClientRect().top + window.pageYOffset;
-  let scroller = setInterval(function() {
-    let scrollBy = coordY / framesCount;
-    if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
-      window.scrollBy(0, scrollBy);
-    } else {
-      window.scrollTo(0, coordY);
-      clearInterval(scroller);
-    }
-  }, animationTime / framesCount);
+  el.scrollIntoView({block: "center", behavior: "smooth"});
+  // const animationTime = 400;
+  // const framesCount = 20;
+  // let coordY = el.getBoundingClientRect().top + window.pageYOffset;
+  // let scroller = setInterval(function() {
+  //   let scrollBy = coordY / framesCount;
+  //   if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+  //     window.scrollBy(0, scrollBy);
+  //   } else {
+  //     window.scrollTo(0, coordY);
+  //     clearInterval(scroller);
+  //   }
+  // }, animationTime / framesCount);
 }
 
 // обработчик клика по кнопке Оформить заказ
 if (buttonOrderElement) {
   // обработчик клика по кнопке
   buttonOrderElement.addEventListener('click', () => {
-    toggleForm(formOrderElement, 'form_opened');
+    toggleForm(formOrderElement, 'cart__order_opened');
     changeText(buttonOrderElement, 'Оформить заказ');
     scrollToElement(formOrderElement);
   });

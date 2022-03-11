@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 from seedlings.models import Seedling
 
-from .cart import Cart, order_send
+from .cart import Cart, order_send, calculation_of_quantity
 from .forms import CartEditForm, OrderCreateForm
 from .models import OrderItem
 
@@ -68,6 +68,7 @@ def cart_detail(request):
                 price=item['price'],
                 quantity=item['quantity']
             )
+        calculation_of_quantity(cart)
         cart.clear()
         return render(
                 request,

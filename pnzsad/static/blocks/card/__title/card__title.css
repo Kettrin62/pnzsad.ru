@@ -1,0 +1,16 @@
+.card__title {
+  display: none;
+}
+
+@media all and (max-width: 610px) {
+  .card__title {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.1;
+    min-height: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+  }
+}

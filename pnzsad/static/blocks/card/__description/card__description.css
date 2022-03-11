@@ -1,0 +1,27 @@
+.card__description {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(3, min-content);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 10px 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #e8e8e8;
+  opacity: .8;
+  min-height: 135px;
+}
+
+@media all and (max-width: 610px) {
+  .card__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    height: min-content;
+  }
+}
