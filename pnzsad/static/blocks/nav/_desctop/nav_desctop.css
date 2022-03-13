@@ -1,0 +1,11 @@
+.nav_desctop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media all and (max-width: 760px) {
+  .nav_desctop {
+    display: none;
+  }
+}

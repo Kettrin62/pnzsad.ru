@@ -1,0 +1,9 @@
+.paginator_locate_center {
+  margin-left: 0;
+}
+
+@media all and (max-width: 900px) {
+  .paginator_locate_center {
+    margin-left: 0;
+  }
+}

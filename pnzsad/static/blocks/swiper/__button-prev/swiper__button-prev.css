@@ -1,0 +1,41 @@
+.swiper__button-prev {
+  left: 0;
+  right: auto;
+  position: absolute;
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper__button-prev::after {
+  content: '';
+  width: 30px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50px;
+  background-color: #ebebeb;
+  background-image: url(../../../images/swiper-button-prev.svg);
+  opacity: .7;
+}
+
+.swiper__button-prev:hover {
+  opacity: .75;
+}
+
+@media all and (max-width: 730px) {
+  .swiper__button-prev {
+    left: -5px;
+  }
+  
+  .swiper__button-prev::after {
+    width: 20px;
+    height: 30px;
+    border-radius: 30px;
+  }
+}

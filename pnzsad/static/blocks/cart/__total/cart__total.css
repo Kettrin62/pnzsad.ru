@@ -1,0 +1,9 @@
+.cart__total {
+  font-weight: 600;
+}
+
+@media all and (max-width: 760px) {
+  .cart__total {
+    font-size: 14px;
+  }
+}

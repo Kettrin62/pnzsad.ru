@@ -24,7 +24,6 @@ const buttonOrderElement = bodyElement.querySelector('.cart__button-order');
 const formOrderElement = bodyElement.querySelector('.cart__order');
 
 
-
 // swiper
 const swiper = new Swiper('.swiper', {
   // Optional parameters
@@ -77,7 +76,6 @@ if (menuCloseButton) {
   });
 }
 
-
 // выпадающая кнопка категорий
 // функция открытия списка кнопок
 function openListButtons() {
@@ -90,7 +88,6 @@ if (buttonCategoriesElement) {
     openListButtons();
   })
 }
-
 
 // функция обнуления ссылок
 function inactiveLink(link) {
@@ -118,6 +115,9 @@ function toggleForm(el, nameClass) {
   el.classList.toggle(nameClass);
 }
 
+function scrollToElement(el) {
+  el.scrollIntoView({block: "center", behavior: "smooth"});
+}
 
 const changeText = (button, text) => {
   if (button.textContent === text) {
@@ -137,22 +137,6 @@ if (buttonAddCommentsElement) {
   });
 }
 
-function scrollToElement(el) {
-  el.scrollIntoView({block: "center", behavior: "smooth"});
-  // const animationTime = 400;
-  // const framesCount = 20;
-  // let coordY = el.getBoundingClientRect().top + window.pageYOffset;
-  // let scroller = setInterval(function() {
-  //   let scrollBy = coordY / framesCount;
-  //   if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
-  //     window.scrollBy(0, scrollBy);
-  //   } else {
-  //     window.scrollTo(0, coordY);
-  //     clearInterval(scroller);
-  //   }
-  // }, animationTime / framesCount);
-}
-
 // обработчик клика по кнопке Оформить заказ
 if (buttonOrderElement) {
   // обработчик клика по кнопке
@@ -162,4 +146,3 @@ if (buttonOrderElement) {
     scrollToElement(formOrderElement);
   });
 }
-

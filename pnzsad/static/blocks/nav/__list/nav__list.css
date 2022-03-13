@@ -1,0 +1,15 @@
+.nav__list {
+  display: none;
+}
+
+@media all and (max-width: 760px) {
+  .nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+  }
+}

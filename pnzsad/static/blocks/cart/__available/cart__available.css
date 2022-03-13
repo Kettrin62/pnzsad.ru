@@ -1,0 +1,17 @@
+.cart__available {
+  font-size: 14px;
+  align-self: flex-end;
+  margin: 0;
+}
+
+@media all and (max-width: 1000px) {
+  .cart__available {
+    align-self: center;
+  }
+}
+
+@media all and (max-width: 760px) {
+  .cart__available {
+    font-size: 12px;
+  }
+}

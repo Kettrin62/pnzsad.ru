@@ -1,0 +1,15 @@
+.contacts__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.16;
+  display: flex;
+  margin: auto 0;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (max-width: 500px) {
+  .contacts__text {
+    font-size: 12px;
+  }
+}

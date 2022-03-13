@@ -1,0 +1,16 @@
+.element__button-card {
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  padding: 0;
+  width: 100%;
+  transition: transform .3s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+}
+
+.element__button-card:hover {
+  transform: scale(1.05, 1.05);
+}

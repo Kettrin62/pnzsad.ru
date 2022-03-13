@@ -9,85 +9,9 @@
   gap: 70px;
 }
 
-.footer__list {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.footer__item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer__text {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.16;
-  display: flex;
-  min-height: 60px;
-  margin: auto 0;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer__icon {
-  width: 18px;
-  height: 18px;
-  object-fit: cover;
-}
-
-.footer__copy {
-  color: #222;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 140%;
-  margin: 0;
-  opacity: 0.7;
-}
-
 @media all and (max-width: 960px) {
   .footer {
     gap: 30px;
     align-items: start;
-  }
-
-  .footer__copy {
-    margin-top: 20px;
-  }
-
-  .footer__list {
-    flex-direction: column;
-    gap: 0;
-    margin-top: 10px;
-    align-items: flex-start;
-    margin-bottom: 10px;
-  }
-
-  .footer__text {
-    min-height: 40px;
-  }
-}
-
-@media all and (max-width: 500px) {
-  .footer__text {
-    min-height: 30px;
-    font-size: 12px;
-  }
-
-  .footer__icon {
-    width: 15px;
-    height: 15px;
-  }
-
-  .footer__copy {
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 140%;
   }
 }

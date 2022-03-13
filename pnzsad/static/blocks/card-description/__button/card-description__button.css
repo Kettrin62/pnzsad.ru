@@ -1,0 +1,28 @@
+.card-description__button {
+  background-color: #cecaca;
+  width: 130px;
+  height: 30px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid rgba(84, 84, 84, 0.7);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: transform .3s ease-in-out;
+  text-decoration: none;
+  justify-self: end;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-description__button:hover {
+  transform: scale(1.05, 1.05);
+}
+
+@media all and (max-width: 500px) {
+  .card-description__button {
+    font-size: 14px;
+  }
+}

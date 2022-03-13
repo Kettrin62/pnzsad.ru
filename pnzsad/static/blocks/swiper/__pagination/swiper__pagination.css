@@ -1,0 +1,6 @@
+.swiper__pagination {
+  position: absolute;
+  z-index: 3;
+  margin-left: calc((100% - 30px)/2);
+  margin-top: -25px;
+}

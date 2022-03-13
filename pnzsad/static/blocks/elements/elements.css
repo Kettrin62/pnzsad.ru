@@ -3,24 +3,6 @@
   margin: 0 auto;
 }
 
-.elements__title {
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 1.16;
-  text-align: center;
-  margin: 0 0 15px;
-}
-
-.elements__list {
-  display: grid;
-  gap: 20px 30px;
-  grid-template-columns: repeat(auto-fill, 282px);
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 1220px;
-}
-
 @media screen and (max-width: 1300px) {
   .elements {
     max-width: 906px;
@@ -30,17 +12,5 @@
 @media all and (max-width: 960px) {
   .elements {
     max-width: 594px;
-  }
-}
-
-@media all and (max-width: 630px) {
-  .elements__title {
-    font-size: 20px;
-    line-height: 1.06;
-  }
-
-  .elements__list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
   }
 }

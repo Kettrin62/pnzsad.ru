@@ -3,27 +3,3 @@
   gap: 30px;
   padding: 0 calc(25%/10) 20px calc(25%/10);
 }
-
-.login__image {
-  width: 50%;
-}
-
-.login__button {
-  background-color: #cecaca;
-  width: 180px;
-  min-height: 30px;
-  text-align: center;
-  border-radius: 3px;
-  border: 1px solid rgba(84, 84, 84, 0.7);
-  transition: opacity .3s ease-in-out;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  transition: transform .3s ease-in-out;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}

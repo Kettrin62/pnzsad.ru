@@ -1,0 +1,13 @@
+.nav__cart {
+  position: absolute;
+  right: 0;
+  top: -16px;
+  min-width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: red;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 15px;
+}

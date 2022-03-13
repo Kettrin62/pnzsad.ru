@@ -1,0 +1,21 @@
+.paginator__button-next {
+  background-image: url(../../../images/swiper-button-next.svg);
+  width: 10px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-size: cover;
+  opacity: 1;
+}
+
+.paginator__button-next:hover {
+  opacity: .6;
+}
+
+@media all and (max-width: 610px) {
+  .paginator__button-next {
+    width: 8px;
+    height: 14px;
+  }
+}

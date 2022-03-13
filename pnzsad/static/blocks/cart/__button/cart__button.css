@@ -1,0 +1,12 @@
+.cart__button {
+  height: 28px;
+  width: min-content;
+  margin-left: 30px;
+}
+
+@media all and (max-width: 1000px) {
+  .cart__button {
+    margin-left: 0;
+    grid-column: 1/3;
+  }
+}

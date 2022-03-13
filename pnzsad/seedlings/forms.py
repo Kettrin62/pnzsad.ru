@@ -13,6 +13,6 @@ class CommentForm(forms.ModelForm):
         text = self.cleaned_data['text']
         if Comment.objects.filter(text=text, author_name=name).exclude():
             raise forms.ValidationError(
-                'Вы уже оставляли такой отзыв! Просим вас не флудить!'
+                'Вы уже оставляли такой комментарий! Просим вас не флудить!'
             )
         return text
