@@ -1,0 +1,92 @@
+<!--<!DOCTYPE html>
+<html lang="ru">
+  {% load static %}
+  {% load user_filters %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'pages/index.css' %}">
+    <title>Питомник Елизарова</title>
+  </head>
+  <body class="page">
+    <header class="header page__section">
+    </header>
+
+    <main class="content page__section">
+
+      <section style="font-family:'Arial'" class="order">
+
+        <h2 class="order__title">Заказ №{{ order.id }} от {{ order.created|date:"d E Y" }}г.</h2>
+        <p class="order__data">Имя: {{ order.first_name }}</p>
+        <p class="order__data">Фамилия: {{ order.last_name }}</p>
+        <p class="order__data">Телефон: {{ order.phoneNumber }}</p>
+        <p class="order__data">e-mail: {{ order.email }}</p>
+        <ul class="order__list">
+          {% for item in seedlings %}
+            {% include "cart/order_pdf_item.html" %}
+          {% endfor %}
+        </ul>
+        <h3 class="cart__total">Итого к оплате: {{ seedlings.get_total_price|int_view }}&#8381;</h3>
+
+      </section>
+
+    </main>
+    <footer class="footer page__section">
+      <p class="footer__copy">&copy; Питомник Елизарова&nbsp;{{ year }}</p>
+      <ul class="footer__list">
+        <li class="footer__item">
+          <img class="footer__icon" src="{% static 'images/telephone-icon.svg' %}" alt="Иконка телефона">
+          <p class="footer__text">8 962 474 30 70</p>
+        </li>
+        <li class="footer__item">
+          <img class="footer__icon" src="{% static 'images/mail.svg' %}" alt="Иконка e-mail адреса">
+          <p class="footer__text">sajenci58@gmail.com</p>
+        </li>
+        <li class="footer__item">
+          <img class="footer__icon" src="{% static 'images/map.svg' %}" alt="Иконка карты">
+          <p class="footer__text"> 442710, Пензенская обл., р.п.Исса, ул.Гаврилова, д.36</p>
+        </li>
+      </ul>
+    </footer>
+    <script src="{% static 'pages/index.js' %}"></script>
+  </body>
+</html>-->
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Питомник Елизарова</title>
+    {% load static %}
+    <style type="text/css">
+      @font-face {
+        font-family: Arial;
+        src: url({% static 'vendor\fonts\arial.ttf' %});
+      }
+      div { font-family: arial; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h3 align="center" style="font-size:18px"><u><b>Заказ №{{ order.id }} от {{ order.created|date:"d E Y" }}г.</b></u></h3>
+    </div>
+    <br>
+    <div style="margin-left:50px">
+      <p style="font-size:14px">Имя: {{ order.first_name }}</p>
+      <p style="font-size:14px">Фамилия: {{ order.last_name }}</p>
+      <p style="font-size:14px">Телефон: {{ order.phoneNumber }}</p>
+      <p style="font-size:14px">e-mail: {{ order.email }}</p>
+    </div>
+    <br>
+    <div style="margin-left:20px">
+      <table width="100%" cellpadding="5">
+          {% for item in seedlings %}
+            {% include "cart/order_pdf_item.html" %}
+          {% endfor %}
+          <tr><td colspan="24" style="text-align:right; font-size:14px" height="80"><b>Итого:</b></td><td colspan="6" style="font-size:14px"><b>{{ seedlings.get_total_price|int_view }} р.</b></td></tr>
+      </table>
+    </div>
+  </body>
+</html>

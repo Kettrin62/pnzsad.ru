@@ -10,13 +10,23 @@
         {% endwith %}
       {% endfor %}
     </ul>
-
     <div class="cart__total-item">
       <p class="cart__total">Итого к оплате: {{ cart.get_total_price|int_view }} &#8381;</p>
       <button class="cart__button-order" type="button">Оформить заказ</button>
       <div class="cart__order">
-        <div class="cart__order-text"></div>
-
+        <ul type="disc" class="cart__order-text">
+          <li>
+            Для оформления заказа заполните форму.<br>
+            Поля, отмеченные звёздочкой, обязательны для заполнения.
+          </li>
+          <li>
+            После оформления заказа мы свяжемся с Вами в течении 3 
+            (трёх) рабочих дней для согласования даты выдачи заказа.
+          </li>
+          <li>
+            Оплата заказа производится при получении.
+          </li>
+        </ul>
         {% if form.errors %}
           {% for field in form %} 
             {% for error in field.errors %}            

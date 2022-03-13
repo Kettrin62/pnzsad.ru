@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
-from seedlings.models import Seedling
 
+from seedlings.models import Seedling
 from .cart import Cart, order_send, calculation_of_quantity
 from .forms import CartEditForm, OrderCreateForm
 from .models import OrderItem
@@ -35,12 +35,18 @@ def cart_update(request, product_id):
 
 
 def cart_detail(request):
+    MAX_VALUE_ERROR = 'превышено количество'
+
     cart = Cart(request)
 
+    quantity_valid = True
     for item in cart:
         item['update_quantity_form'] = CartEditForm(
             initial={'quantity': item['quantity']}
         )
+        if item['quantity'] > item['product'].stock:
+            quantity_valid = False
+            item['quantity_error'] = MAX_VALUE_ERROR
 
     first_name = ''
     last_name = ''
@@ -59,7 +65,8 @@ def cart_detail(request):
             'email': email
         }
     )
-    if order_form.is_valid():
+
+    if order_form.is_valid() and quantity_valid:
         new_order = order_form.save()
         for item in cart:
             OrderItem.objects.create(
@@ -68,6 +75,10 @@ def cart_detail(request):
                 price=item['price'],
                 quantity=item['quantity']
             )
+        order_send(
+            'cart/order_pdf.html',
+            {'order': new_order, 'seedlings': cart}
+        )
         calculation_of_quantity(cart)
         cart.clear()
         return render(
@@ -81,17 +92,6 @@ def cart_detail(request):
         'cart/cart_detail.html',
         {
             'cart': cart,
-            'form': order_form
+            'form': order_form,
         }
     )
-
-
-def order_gen(request):
-    cart = Cart(request)
-    for item in cart:
-        item['update_quantity_form'] = CartEditForm(
-            initial={'quantity': item['quantity']}
-        )
-    order_send('cart/test.html', {'cart': cart})
-    cart.clear()
-    return redirect('seedlings:index')

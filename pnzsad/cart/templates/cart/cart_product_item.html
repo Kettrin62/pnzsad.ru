@@ -7,9 +7,10 @@
   <p class="cart__available">Доступно:&nbsp;{{ product.stock }}</p>
     <form action="{% url 'cart:cart_update' product.id %}" method="post" class="cart__form">
         {% csrf_token %}
-        {{ item.update_quantity_form.quantity|addclass:'cart__input' }}
+        {{ item.update_quantity_form.quantity|add_max_tag:product.stock }}
         <p class="cart__text">шт.</p>
         <button class="cart__button">Применить</button>
+        <span style="color:red; font-weight:600; font-size:12px">{{ item.quantity_error }}</span>
     </form>
   <p class="cart__cost">Сумма&nbsp;{{ item.total_price|int_view }} &#8381;</p>
   <a href="{% url 'cart:cart_remove' product.id %}" class="cart__button-delete"></a>

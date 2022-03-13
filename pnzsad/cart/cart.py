@@ -8,11 +8,6 @@ from django.template.loader import get_template
 from seedlings.models import Seedling
 from xhtml2pdf import pisa
 
-# def get_order_file_path(file_name):
-#     if not os.path.exists(settings.ORDER_PDF_DIR):
-#         os.mkdir(settings.ORDER_PDF_DIR)
-#     return os.path.join(settings.ORDER_PDF_DIR, file_name)
-
 
 class Cart(object):
 
@@ -124,10 +119,6 @@ def order_send(template, context):
         link_callback=fetch_pdf_resources
     )
 
-    # file_path = get_order_file_path('hello.pdf')
-    # with open(file_path, 'ab+') as f:
-    #     f.write(result.getvalue())
-
     subject = ''
     message = ''
 
@@ -136,15 +127,17 @@ def order_send(template, context):
         message = 'При формировании заказа возникла ошибка генерации pdf файла'
 
     subject = 'Сформирован новый заказ'
-    message = 'Поздравляем! На сайте питомника сформирован новый заказ!'
+    message = (
+        'На сайте pnzsad.ru оформлен новый заказ. '
+        'Бланк заказа прикреплён к этому письму.'
+    )
 
     msg = EmailMessage(
         subject,
         message,
-        'EsYA.Specsnab@gmail.com',
-        ['h466h@mail.ru']
+        settings.EMAIL_HOST_USER,
+        settings.EMAIL_TO
     )
-    # email.attach_file(file_path)
     msg.attach('Order.pdf', result.getvalue(), 'application/pdf')
     msg.send()
 
