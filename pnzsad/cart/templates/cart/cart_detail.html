@@ -2,7 +2,11 @@
 {% block content %}
 {% load user_filters %}
   <section class="cart">
-    <h2 class="cart__title">Корзина</h2>
+    {% if cart_len == 0 %}
+      <h2 class="cart__title">Ваша корзина пуста</h2>
+    {% else %}
+      <h2 class="cart__title">Корзина</h2>
+    {% endif %}
     <ul class="cart__list">
       {% for item in cart %}
         {% with product=item.product %}
@@ -12,7 +16,25 @@
     </ul>
     <div class="cart__total-item">
       <p class="cart__total">Итого к оплате: {{ cart.get_total_price|int_view }} &#8381;</p>
-      <button class="cart__button-order" type="button">Оформить заказ</button>
+      {% if cart_len == 0 %}
+        <button class="cart__button-order" type="button" disabled>Оформить заказ</button>
+      {% else %}
+        <button class="cart__button-order" type="button">Оформить заказ</button>
+      {% endif %}
+      {% if form.errors %}
+        {% for field in form %} 
+          {% for error in field.errors %}            
+            <div style="color: red; margin-top: 20px">
+              - {{ error|escape }}
+            </div>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <div style="color: red">
+            - {{ error|escape }}
+          </div>
+        {% endfor %}
+      {% endif %}
       <div class="cart__order">
         <ul type="disc" class="cart__order-text">
           <li>
@@ -27,20 +49,6 @@
             Оплата заказа производится при получении.
           </li>
         </ul>
-        {% if form.errors %}
-          {% for field in form %} 
-            {% for error in field.errors %}            
-              <div style="color: red">
-                - {{ error|escape }}
-              </div>
-            {% endfor %}
-          {% endfor %}
-          {% for error in form.non_field_errors %}
-            <div style="color: red">
-              - {{ error|escape }}
-            </div>
-          {% endfor %}
-        {% endif %}
         <form name="order" class="form form_option_order" action="." method="POST">
           <fieldset class="form__info">
             {% csrf_token %}

@@ -93,5 +93,6 @@ def cart_detail(request):
         {
             'cart': cart,
             'form': order_form,
+            'cart_len': len(cart)
         }
     )
