@@ -1,0 +1,6 @@
+@media all and (max-width: 760px) {
+  .nav__menu {
+    display: flex;
+    align-items: center;
+  }
+}

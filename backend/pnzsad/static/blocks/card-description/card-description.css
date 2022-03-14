@@ -1,0 +1,8 @@
+@media all and (max-width: 500px) {
+  .card-description {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+  }
+}

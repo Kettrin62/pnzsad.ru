@@ -1,0 +1,29 @@
+.swiper__images {
+  color: #fff;
+  min-height: 440px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.swiper__images::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #2a2c2f;
+  opacity: .4;
+  transition: opacity .2s ease-in-out;
+}
+
+@media all and (max-width: 730px) {
+  .swiper__images {
+    min-height: 300px;
+  }
+}

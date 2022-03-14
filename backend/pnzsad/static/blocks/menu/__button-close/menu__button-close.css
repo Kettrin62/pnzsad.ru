@@ -1,0 +1,16 @@
+.menu__button-close {
+  background: url(../../../images/menu-button-close.svg) center/cover no-repeat;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  height: 32px;
+  width: 32px;
+  transition: opacity .4s linear;
+  margin-left: 14px;
+  margin-bottom: 27px;
+  align-self: flex-start;
+}
+
+.menu__button-close:hover {
+  opacity: .6;
+}

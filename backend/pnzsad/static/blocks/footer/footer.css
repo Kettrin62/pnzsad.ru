@@ -1,0 +1,17 @@
+.footer {
+  border-top: 1px solid rgba(84, 84, 84, 0.7);
+  width: calc(100% - 25% / 5);
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+}
+
+@media all and (max-width: 960px) {
+  .footer {
+    gap: 30px;
+    align-items: start;
+  }
+}

@@ -1,0 +1,10 @@
+.cart__text {
+  align-self: flex-end;
+  margin: 0;
+}
+
+@media all and (max-width: 760px) {
+  .cart__text {
+    font-size: 12px;
+  }
+}

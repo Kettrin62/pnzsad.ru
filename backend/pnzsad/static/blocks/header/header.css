@@ -1,0 +1,10 @@
+.header {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: inherit;
+  box-sizing: border-box;
+  margin: 0 auto;
+}

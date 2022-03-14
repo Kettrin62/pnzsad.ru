@@ -1,0 +1,23 @@
+.categories__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media all and (max-width: 800px) {
+  .categories__list {
+    width: calc(100% - 2px);
+    margin: 0 auto;
+    position: absolute;
+    top: 30px;
+    left: -1px;
+    z-index: 1;
+    border: 2px solid #e3e3e3;
+    background-color: #f9f9f9;
+    display: none;
+  }
+}

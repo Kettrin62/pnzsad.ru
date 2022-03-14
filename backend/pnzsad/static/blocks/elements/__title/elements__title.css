@@ -1,0 +1,14 @@
+.elements__title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.16;
+  text-align: center;
+  margin: 0 0 15px;
+}
+
+@media all and (max-width: 630px) {
+  .elements__title {
+    font-size: 20px;
+    line-height: 1.06;
+  }
+}

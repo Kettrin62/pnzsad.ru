@@ -1,0 +1,30 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  margin: 0 0 0 60px;
+  padding: 0;
+  position: relative;
+}
+
+@media all and (max-width: 900px) {
+  .categories {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .categories {
+    gap: 0;
+    border: 1px solid rgba(84, 84, 84, 0.7);
+    width: 170px;
+    display: block;
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+    background-color: #f4f4f4;
+    border-radius: 2px;
+  }
+}

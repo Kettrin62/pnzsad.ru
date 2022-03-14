@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="plants">
+    {% include "seedlings/categories_menu.html" %}
+    <ul class="cards">
+    {% for element in elements %}
+      {% include "seedlings/seedling_cards_item.html" %}
+    {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+.comments__data {
+  text-align: right;
+  margin: 0;
+  background-color: #e8e8e8;
+  padding: 5px 0;
+}
+
+@media all and (max-width: 500px) {
+  .comments__data {
+    font-size: 12px;
+  }
+}

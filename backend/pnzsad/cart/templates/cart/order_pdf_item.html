@@ -1,0 +1,8 @@
+{% load user_filters %}
+<tr>
+  <td colspan="1" style="font-size:12px"><b>{{ forloop.counter }}</b></td>
+  <td colspan="13" style="font-size:12px"><b>{{ item.product }}</b></td>
+  <td colspan="5" style="font-size:12px">Цена {{ item.price|int_view }} р.</td>
+  <td colspan="4" style="font-size:12px">{{ item.quantity }} шт.</td>
+  <td colspan="7" style="font-size:12px">Сумма {{ item.total_price|int_view }} р.</td>
+</tr>

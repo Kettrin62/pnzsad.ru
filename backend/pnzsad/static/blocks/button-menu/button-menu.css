@@ -1,0 +1,15 @@
+.button-menu {
+  display: none;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+@media all and (max-width: 760px) {
+  .button-menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    padding: 0;
+  }
+}

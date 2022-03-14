@@ -1,0 +1,28 @@
+.card__button-card {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  padding: 0;
+  width: 100%;
+  transition: opacity .3s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  height: 430px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.card__button-card:hover {
+  opacity: .7;
+}
+
+@media all and (max-width: 610px) {
+  .card__button-card {
+    height: 100%;
+  }
+}

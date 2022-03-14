@@ -1,0 +1,25 @@
+.cart__cost {
+  grid-row: 1/3;
+  font-weight: 500;
+}
+
+@media all and (max-width: 1000px) {
+  .cart__cost {
+    grid-row: 3/4;
+    margin: 0;
+    align-self: start;
+  }
+}
+
+@media all and (max-width: 760px) {
+  .cart__cost {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 560px) {
+  .cart__cost {
+    grid-row: 4/5;
+    margin: 0;
+  }
+}

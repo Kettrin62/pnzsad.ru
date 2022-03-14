@@ -1,0 +1,13 @@
+.nav__link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 129%;
+  font-weight: 500;
+  transition: opacity .3s linear;
+  position: relative;
+}
+
+.nav__link:hover {
+  opacity: .75;
+}

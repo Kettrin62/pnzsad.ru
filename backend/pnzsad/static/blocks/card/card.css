@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media all and (max-width: 610px) {
+  .card {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+}

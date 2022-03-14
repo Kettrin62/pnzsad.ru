@@ -1,0 +1,7 @@
+.nav__image {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

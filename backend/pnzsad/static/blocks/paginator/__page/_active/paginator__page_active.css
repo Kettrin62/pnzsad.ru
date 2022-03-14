@@ -1,0 +1,11 @@
+.paginator__page_active {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+@media all and (max-width: 610px) {
+  .paginator__page_active {
+    font-size: 18px;
+  }
+}

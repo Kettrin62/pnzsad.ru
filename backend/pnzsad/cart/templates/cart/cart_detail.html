@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+{% load user_filters %}
+  <section class="cart">
+    {% if cart_len == 0 %}
+      <h2 class="cart__title">Ваша корзина пуста</h2>
+    {% else %}
+      <h2 class="cart__title">Корзина</h2>
+    {% endif %}
+    <ul class="cart__list">
+      {% for item in cart %}
+        {% with product=item.product %}
+        {% include "cart/cart_product_item.html" %}
+        {% endwith %}
+      {% endfor %}
+    </ul>
+    <div class="cart__total-item">
+      <p class="cart__total">Итого к оплате: {{ cart.get_total_price|int_view }} &#8381;</p>
+      {% if cart_len == 0 %}
+        <button class="cart__button-order" type="button" disabled>Оформить заказ</button>
+      {% else %}
+        <button class="cart__button-order" type="button">Оформить заказ</button>
+      {% endif %}
+      {% if form.errors %}
+        {% for field in form %} 
+          {% for error in field.errors %}            
+            <div style="color: red; margin-top: 20px">
+              - {{ error|escape }}
+            </div>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <div style="color: red">
+            - {{ error|escape }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      <div class="cart__order">
+        <ul type="disc" class="cart__order-text">
+          <li>
+            Для оформления заказа заполните форму.<br>
+            Поля, отмеченные звёздочкой, обязательны для заполнения.
+          </li>
+          <li>
+            После оформления заказа мы свяжемся с Вами в течении 3 
+            (трёх) рабочих дней для согласования даты выдачи заказа.
+          </li>
+          <li>
+            Оплата заказа производится при получении.
+          </li>
+        </ul>
+        <form name="order" class="form form_option_order" action="." method="POST">
+          <fieldset class="form__info">
+            {% csrf_token %}
+            {% for field in form %}
+              <label for="{{ field.id_for_label }}" class="form__label">
+                {{ field.label }}
+                {% if field.field.required %}
+                  <span>*</span>
+                {% endif %}
+              </label>
+              {{ field|addclass:'form__item' }} 
+              {% if field.help_text %}
+                <small id="{{ field.id_for_label }}-help" class="form__item-error">
+                  {{ field.help_text|safe }}
+                </small>
+              {% endif %}
+            {% endfor %}
+            <button type="submit" class="form__button">
+              Оформить заказ
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

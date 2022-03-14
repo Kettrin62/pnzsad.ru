@@ -1,0 +1,7 @@
+.comments {
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}

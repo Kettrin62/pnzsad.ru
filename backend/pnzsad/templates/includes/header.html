@@ -1,0 +1,96 @@
+{% load static %}
+<header class="header page__section">
+  <nav class="nav header__nav nav_desctop">
+    <a href="{% url 'seedlings:index' %}" class="nav__link">
+      <h1 class="nav__title">
+        Питомник Елизарова
+      </h1>
+    </a>
+    <ul class="nav__links">
+      <li class="nav__link">
+        <a href="{% url 'seedlings:seedlings_all' %}" class="nav__link">Саженцы</a>
+      </li>
+      <li class="nav__link">
+        <a href="{% url 'about:about' %}" class="nav__link">О питомнике</a>
+      </li>
+      <li class="nav__link">
+        <a href="{% url 'about:contacts' %}" class="nav__link">Контакты</a>
+      </li>
+      <li class="nav__link">
+        <a href="{% url 'cart:cart_detail' %}" class="nav__link">
+          <img src="{% static 'images/cart.svg' %}" alt="Корзина" class="nav__image">
+          <div class="nav__cart">
+            <p class="nav__count">{{ len_cart }}</p>
+          </div>
+        </a>
+      </li>
+      {% if user.is_authenticated %}
+        <li class="nav__link">
+          <a href="{% url 'logout' %}" class="nav__link">
+            <img src="{% static 'images/exit.svg' %}" alt="Выйти из личного кабинета" class="nav__image">
+          </a>
+        </li>
+      {% else %}
+        <li class="nav__link">
+          <a href="{% url 'login' %}" class="nav__link">
+            <img src="{% static 'images/account.svg' %}" alt="Личный кабинет" class="nav__image">
+          </a>
+        </li>
+        {% endif %}
+    </ul>
+  </nav>
+
+  <div class="nav__menu">
+    <button type="button" class="button-menu header__button">
+      <span class="button-menu__line"></span>
+      <span class="button-menu__line"></span>
+      <span class="button-menu__line"></span>
+    </button>
+    <a href="{% url 'seedlings:index' %}" class="nav__link nav__link_mobile">
+      <h1 class="nav__title">
+        Питомник Елизарова
+      </h1>
+    </a>
+  </div>
+
+  <ul class="nav__list">
+    <li class="nav__link">
+      <a href="{% url 'cart:cart_detail' %}" class="menu__link">
+        <img src="{% static 'images/cart.svg' %}" alt="Корзина" class="nav__image">
+        <div class="nav__cart">
+          <p class="nav__count">{{ len_cart }}</p>
+        </div>
+      </a>
+    </li>
+    <li class="nav__link">
+      <a href="{% url 'login' %}" class="nav__link">
+        <img src="{% static 'images/account.svg' %}" alt="Личный кабинет" class="nav__image">
+      </a>
+    </li>
+  </ul>
+
+  <section class="menu">
+    <button type="button" class="menu__button-close menu__button-close_theme_light"></button>
+    <nav class="nav">
+      <ul class="nav__links nav__links_type_vertical">
+        <li class="nav__link">
+          <a href="{% url 'seedlings:index' %}" class="nav__link">
+            <h1 class="nav__title">
+              Питомник Елизарова
+            </h1>
+          </a>
+        </li>
+        <li class="header__link">
+          <a href="{% url 'seedlings:seedlings_all' %}" class="nav__link">Саженцы</a>
+        </li>
+        <li class="header__link">
+          <a href="{% url 'about:about' %}" class="nav__link">О питомнике</a>
+        </li>
+        <li class="nav__link">
+          <a href="{% url 'about:contacts' %}" class="nav__link">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+</header>

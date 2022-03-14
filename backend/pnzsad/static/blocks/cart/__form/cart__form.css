@@ -1,0 +1,21 @@
+.cart__form {
+  display: flex;
+  gap: 5px;
+  align-self: start;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media all and (max-width: 1000px) {
+  .cart__form {
+    grid-template-columns: repeat(2, min-content);
+    row-gap: 10px;
+  }
+}
+
+@media all and (max-width: 560px) {
+  .cart__form {
+    justify-self: start;
+  }
+}

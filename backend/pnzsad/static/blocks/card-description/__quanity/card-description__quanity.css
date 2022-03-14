@@ -1,0 +1,11 @@
+.card-description__quanity {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+@media all and (max-width: 950px) {
+  .card-description__quanity {
+    margin: 0;
+  }
+}

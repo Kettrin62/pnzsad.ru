@@ -1,0 +1,13 @@
+.categories__button_active {
+  font-weight: 500;
+  background-color: #e8e8e8;
+  transform: scale(1.05, 1.05);
+}
+
+@media all and (max-width: 800px) {
+  .categories__button_active {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    transform: none;
+  }
+}

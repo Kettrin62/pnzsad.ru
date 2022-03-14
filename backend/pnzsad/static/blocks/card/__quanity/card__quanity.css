@@ -1,0 +1,13 @@
+.card__quantity {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+@media all and (max-width: 610px) {
+  .card__quantity {
+    font-size: 12px;
+    margin: 0;
+    align-self: flex-end;
+  }
+}

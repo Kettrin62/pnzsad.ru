@@ -1,0 +1,6 @@
+.cart__input-item {
+  display: flex;
+  gap: 5px;
+  align-self: start;
+  justify-self: center;
+}

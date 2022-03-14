@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+{% load user_filters %}
+  <section class="card-content">
+    {% include "seedlings/categories_menu.html" %}
+    <article class="card-description">
+      <img src="/media/{{ seedling.image }}" alt="{{ seedling.title }}" class="card-description__image">
+      <h3 class="card-description__title">{{ seedling.title }}</h3>
+      <div class="card-description__price-container">
+        <p class="card-description__quanity">В наличии {{ seedling.stock }} шт.</p>
+        {% if user.is_wholesaler %}
+          <p class="card-description__price">Цена {{ seedling.wholesale_price|int_view  }} &#8381;</p>
+        {% else %}
+          <p class="card-description__price">Цена {{ seedling.retail_price|int_view  }} &#8381;</p>
+        {% endif %}
+        <a href="{% url 'cart:cart_add' seedling.pk %}" class="card-description__button">В корзину</a>
+      </div>
+      <p class="card-description__caption">
+          {{ seedling.full_description | safe }}
+      </p>
+    </article>
+    {% if elements %}
+      <hr class="card-description__line">
+    {% endif %}
+
+    <article class="comments">
+      <a class="comments__button" href="#">Добавить комментарий</a>
+
+      {% if form.errors %}
+        {% for field in form %} 
+          {% for error in field.errors %}            
+            <div style="color: red">
+              - {{ error|escape }}
+            </div>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <div style="color: red">
+            - {{ error|escape }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      <form name="comments" class="form form_option_comments" action="." method="POST">
+        {% csrf_token %}
+        <fieldset class="form__info">
+          {% for field in form %}
+            <label for="{{ field.id_for_label }}" class="form__label">
+              {{ field.label }}
+              {% if field.field.required %}
+                <span>*</span>
+              {% endif %}
+            </label>
+            {{ field|addclass:'form__item' }} 
+            {% if field.help_text %}
+              <small id="{{ field.id_for_label }}-help" class="form__item-error">
+                {{ field.help_text|safe }}
+              </small>
+            {% endif %}
+          {% endfor %}
+          <button type="submit" class="form__button">
+            Опубликовать
+          </button>
+        </fieldset>
+      </form>
+      {% for comment in elements %}
+        {% include "seedlings/seedling_comment_item.html" %}
+      {% endfor %}
+    </article>
+  </section>
+{% endblock %}

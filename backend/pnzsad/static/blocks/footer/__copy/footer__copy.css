@@ -1,0 +1,22 @@
+.footer__copy {
+  color: #222;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  margin: 0;
+  opacity: 0.7;
+}
+
+@media all and (max-width: 960px) {
+  .footer__copy {
+    margin-top: 20px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .footer__copy {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 140%;
+  }
+}

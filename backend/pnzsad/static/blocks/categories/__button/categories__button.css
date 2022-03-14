@@ -1,0 +1,26 @@
+.categories__button {
+  background-color: #f9f9f9;
+  width: 170px;
+  min-height: 30px;
+  border-radius: 3px;
+  border: 1px solid rgba(84, 84, 84, 0.7);
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categories__button:hover {
+  transform: scale(1.05, 1.05);
+}
+
+@media all and (max-width: 800px) {
+  .categories__button {
+    border: none;
+    width: 100%;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,11 @@
+.contacts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media all and (max-width: 500px) {
+  .contacts__list {
+    padding-left: 10px;
+  }
+}

@@ -1,0 +1,18 @@
+.contacts__iframe {
+  width: 75vw;
+  height: 45vw;
+}
+
+@media all and (max-width: 1000px) {
+  .contacts__iframe {
+    align-self: center;
+    width: 95vw;
+    height: 55vw;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .contacts__iframe {
+    height: 80vw;
+  }
+}

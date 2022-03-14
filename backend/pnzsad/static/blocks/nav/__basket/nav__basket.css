@@ -1,0 +1,7 @@
+@media all and (max-width: 760px) {
+  .nav__basket {
+    top: -9px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

@@ -1,0 +1,19 @@
+.cart__order-text {
+  width: calc(100% - 600px);
+  padding: 0 60px;
+  text-align: justify;
+}
+
+@media all and (max-width: 1000px) {
+  .cart__order-text {
+    width: 600px;
+    padding: 0;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .cart__order-text {
+    width: 100%;
+    font-size: 12px;
+  }
+}

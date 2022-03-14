@@ -1,0 +1,25 @@
+{% if elements.has_other_pages %}
+  {% if paginator_class in 'seedling_page' %}
+    <section class="paginator paginator_locate_center">
+  {% else %}
+    <section class="paginator">
+  {% endif %}
+  {% if elements.has_previous %}
+    <a class="paginator__button-prev" href="?page={{ elements.previous_page_number }}"></a>
+  {% else %}
+    <div class="paginator__button-prev"></div>
+  {% endif %}
+  {% for i in elements.paginator.page_range %}
+    {% if elements.number == i %}
+      <div class="paginator__page paginator__page_active">{{ i }}</div>
+    {% else %}
+      <a class="paginator__page" href="?page={{ i }}">{{ i }}</a>
+    {% endif %}
+  {% endfor %}
+  {% if elements.has_next %}
+    <a class="paginator__button-next" href="?page={{ elements.next_page_number }}"></a>
+  {% else %}
+    <div class="paginator__button-next"></div>
+  {% endif %}
+  </section>
+{% endif %}

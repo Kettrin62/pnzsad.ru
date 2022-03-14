@@ -1,0 +1,47 @@
+.form__item {
+  font-family: 'Inter', Arial, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 5px;
+  font-size: 14px;
+  line-height: 1.21;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+
+.form__item:focus {
+  outline-color: #fff6c5;
+}
+
+.form__item::placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}
+
+.form__item::-webkit-input-placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}
+
+.form__item::-moz-placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}
+
+.form__item::-ms-input-placeholder {
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.21;
+  font-weight: normal;
+  color: #000;
+}

@@ -1,0 +1,4 @@
+.page__section {
+  padding-left: calc(25%/10);
+  padding-right: calc(25%/10);
+}
