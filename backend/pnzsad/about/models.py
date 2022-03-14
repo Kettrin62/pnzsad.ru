@@ -1,7 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
-
-from django.db import models
 from django.core.exceptions import ValidationError
+from django.db import models
 
 
 class About(models.Model):

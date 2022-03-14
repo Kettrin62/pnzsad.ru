@@ -5,8 +5,9 @@ from decimal import Decimal
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
-from seedlings.models import Seedling
 from xhtml2pdf import pisa
+
+from seedlings.models import Seedling
 
 
 class Cart(object):

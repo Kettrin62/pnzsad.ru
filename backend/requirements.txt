@@ -2,7 +2,7 @@
 # flake8 # then delete
 django==3.2
 Pillow==8.4
-# django-debug-toolbar # then delete
+django-debug-toolbar # then delete
 reportlab==3.6.6
 xhtml2pdf==0.2.5
 django-ckeditor==6.2.0

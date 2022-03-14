@@ -2,7 +2,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
 from seedlings.models import Seedling
-from .cart import Cart, order_send, calculation_of_quantity
+
+from .cart import Cart, calculation_of_quantity, order_send
 from .forms import CartEditForm, OrderCreateForm
 from .models import OrderItem
 

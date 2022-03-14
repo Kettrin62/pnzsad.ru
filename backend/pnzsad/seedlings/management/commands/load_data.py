@@ -3,6 +3,7 @@ from os import path
 from shutil import copytree, ignore_patterns, rmtree
 
 from django.core.management.base import BaseCommand
+
 from seedlings.models import Category, Seedling
 
 
@@ -11,14 +12,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        with open('../data/loading_data/Category/Category_data.csv') as file:
+        with open('../../data/loading_data/Category/Category_data.csv') as file:
             file_data = csv.reader(file, delimiter=';')
             for item in file_data:
                 id, name, image, slug = item
                 Category.objects.get_or_create(
                     pk=id, title=name, image=image, slug=slug
                 )
-        with open('../data/loading_data/Seedlings/Seedlings_data.csv') as file:
+        with open('../../data/loading_data/Seedlings/Seedlings_data.csv') as file:
             file_data = csv.reader(file, delimiter=';')
             for item in file_data:
                 (
@@ -36,6 +37,6 @@ class Command(BaseCommand):
         if path.exists('./media'):
             rmtree('./media')
         copytree(
-            '../loading_data', './media/',
+            '../../data/loading_data', './media/',
             ignore=ignore_patterns('*.csv',)
         )
