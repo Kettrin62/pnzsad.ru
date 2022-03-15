@@ -8,3 +8,5 @@ xhtml2pdf==0.2.5
 django-ckeditor==6.2.0
 python-dotenv
 django-phonenumber-field[phonenumberslite]
+psycopg2-binary
+gunicorn==20.0.4
