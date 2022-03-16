@@ -28,6 +28,7 @@
           {% for item in seedlings %}
             {% include "cart/order_pdf_item.html" %}
           {% endfor %}
+          {% load user_filters %}
           <tr><td colspan="24" style="text-align:right; font-size:14px" height="80"><b>Итого:</b></td><td colspan="6" style="font-size:14px"><b>{{ seedlings.get_total_price|int_view }} р.</b></td></tr>
       </table>
     </div>
