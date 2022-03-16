@@ -34,8 +34,8 @@ class Command(BaseCommand):
                     wholesale_price=wholesale, stock=stock
                 )
 
-        if path.exists('/app/media'):
-            rmtree('/app/media')
+        # if path.exists('/app/media'):
+        #     rmtree('/app/media')
         copytree(
             '/app/loading_data', './media/',
             ignore=ignore_patterns('*.csv',)
