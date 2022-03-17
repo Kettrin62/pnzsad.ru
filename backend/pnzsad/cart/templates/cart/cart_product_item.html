@@ -1,7 +1,9 @@
 {% load user_filters %}
 <li class="cart__item">
   <img src="/media/{{ product.image }}" alt="{{ product }}" class="cart__image">
-  <h3 class="cart__item-title">{{ product }}</h3>
+  <a href="{{ product.get_absolute_url }}" class="cart__link">
+    <h3 class="cart__item-title">{{ product }}</h3>
+  </a>
   <p class="cart__caption">{{ product.short_description }}</p>
   <p class="cart__price">Цена&nbsp;{{ item.price|int_view }} &#8381;</p>
   <p class="cart__available">Доступно:&nbsp;{{ product.stock }}</p>

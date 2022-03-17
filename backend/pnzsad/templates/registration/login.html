@@ -16,7 +16,7 @@
             {% endfor %}
           </ul>
         {% endif %}
-      <form method="post" action="{% url 'login' %}">
+      <form method="post" class="form form_option_login" action="{% url 'login' %}">
         {% csrf_token %}
         {% for field in form %}
           <div>

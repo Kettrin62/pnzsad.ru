@@ -3,6 +3,13 @@
   object-fit: cover;
 }
 
+@media all and (max-width: 1100px) {
+  .login__image {
+    min-height: 200px;
+    min-width: 70%;
+  }
+}
+
 @media all and (max-width: 640px) {
   .login__image {
     height: 200px;
