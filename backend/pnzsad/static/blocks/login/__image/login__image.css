@@ -1,3 +1,11 @@
 .login__image {
   width: 50%;
+  object-fit: cover;
+}
+
+@media all and (max-width: 640px) {
+  .login__image {
+    height: 200px;
+    width: auto;
+  }
 }

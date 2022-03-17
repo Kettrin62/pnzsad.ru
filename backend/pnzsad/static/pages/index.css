@@ -68,6 +68,7 @@
 @import url(../blocks/card-description/card-description.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/_option/form_option_comments.css);
+@import url(../blocks/form/_option/form_option_login.css);
 @import url(../blocks/form/_opened/form_opened.css);
 @import url(../blocks/form/__info/form__info.css);
 @import url(../blocks/form/__item/form__item.css);
@@ -118,7 +119,6 @@
 @import url(../blocks/cart/__order/cart__order.css);
 @import url(../blocks/cart/__order/_opened/cart__order_opened.css);
 @import url(../blocks/cart/__order-text/cart__order-text.css);
-@import url(../blocks/order/order.css);
 @import url(../blocks/login/login.css);
 @import url(../blocks/login/__image/login__image.css);
 @import url(../blocks/login/__button/login__button.css);

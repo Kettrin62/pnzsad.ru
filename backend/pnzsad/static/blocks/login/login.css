@@ -3,3 +3,10 @@
   gap: 30px;
   padding: 0 calc(25%/10) 20px calc(25%/10);
 }
+
+@media all and (max-width: 640px) {
+  .login {
+    flex-direction: column;
+  }
+}
+
