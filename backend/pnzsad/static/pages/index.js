@@ -54,14 +54,12 @@ const swiper = new Swiper('.swiper', {
 // кнопка меню в мобильной версии
 // функция открытия меню
 function openMenu() {
-  console.log(menuElement);
   menuElement.classList.add('menu_opened');
 }
 
 // функция закрытия меню
-function closeMenu() {
-  console.log(menuElement);
-  menuElement.classList.remove('menu_opened');
+function closeMenu(el, cl) {
+  el.classList.remove(cl);
 }
 
 // обработчик клика по кнопке меню
@@ -74,7 +72,7 @@ if (menuButton) {
 // обработчик клика по кнопке закрытия меню
 if (menuCloseButton) {
   menuCloseButton.addEventListener('click', () => {
-    closeMenu();
+    closeMenu(menuElement, 'menu_opened');
   });
 }
 
@@ -83,7 +81,7 @@ if (linkMenuElements) {
   linkMenuElements.forEach((item) => {
     item.addEventListener('click', () => {
       if (menuElement.classList.contains('menu_opened')) {
-        closeMenu();
+        closeMenu(menuElement, 'menu_opened');
       }
     })
   });
@@ -94,6 +92,7 @@ if (linkMenuElements) {
 function openListButtons() {
   listCategoriesElement.classList.toggle('categories__list_opened');
 }
+
 
 if (buttonCategoriesElement) {
   // обработчик клика по кнопке категорий
@@ -119,6 +118,11 @@ categoriesItemLinks.forEach((item) => {
   if (item.textContent === currentCategoriesElement.textContent) {
     activeLink(item)
   } else inactiveLink(item);
+  item.addEventListener('click', () => {
+    if (listCategoriesElement.classList.contains('categories__list_opened')) {
+      closeMenu(listCategoriesElement, 'categories__list_opened');
+    }
+  })
 });
 
 

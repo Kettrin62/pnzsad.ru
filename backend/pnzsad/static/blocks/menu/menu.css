@@ -7,8 +7,7 @@
   left: 0;
   top: 0;
   background-color: inherit;
-  padding-top: 19px;
-  padding-bottom: 30px;
+  padding: 19px calc(25%/10);
   box-sizing: border-box;
   visibility: hidden;
   opacity: 0;
