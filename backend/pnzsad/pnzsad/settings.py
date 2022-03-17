@@ -171,6 +171,7 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_USE_SSL = True
 
 EMAIL_TO = os.getenv('EMAIL_TO').split(', ')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_FROM')
 
 
 CKEDITOR_UPLOAD_PATH = "UPloads/"
