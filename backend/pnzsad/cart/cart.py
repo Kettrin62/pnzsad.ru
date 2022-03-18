@@ -101,7 +101,7 @@ def fetch_pdf_resources(uri, rel):
     elif uri.find(settings.STATIC_URL) != -1:
         uri_static = uri.replace(settings.STATIC_URL, '')
         uri_static = uri_static.replace('/', os.sep)
-        path = os.path.join(settings.STATICFILES_DIRS[0], uri_static)
+        path = os.path.join(settings.STATIC_ROOT, uri_static)
     else:
         path = None
     return path
