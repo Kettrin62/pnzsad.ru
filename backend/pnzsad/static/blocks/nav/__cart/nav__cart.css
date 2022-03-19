@@ -11,3 +11,9 @@
   text-align: center;
   line-height: 15px;
 }
+
+@media all and (max-width: 760px) {
+  .nav__cart {
+    top: -12px;
+  }
+}

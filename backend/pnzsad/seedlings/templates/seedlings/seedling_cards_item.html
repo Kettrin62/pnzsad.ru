@@ -6,6 +6,7 @@
     </figure>
   </a>
   <div class="card__description">
+    <h3 class="card__title">{{ element.title }}</h3>
     <p class="card__text">{{ element.short_description }}</p>
     <p class="card__quantity">Всего {{ element.stock }} шт.</p>
     {% if user.is_wholesaler %}

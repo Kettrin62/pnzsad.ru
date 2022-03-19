@@ -62,11 +62,19 @@
         </div>
       </a>
     </li>
-    <li class="nav__link">
-      <a href="{% url 'login' %}" class="nav__link">
-        <img src="{% static 'images/account.svg' %}" alt="Личный кабинет" class="nav__image">
-      </a>
-    </li>
+    {% if user.is_authenticated %}
+      <li class="nav__link">
+        <a href="{% url 'logout' %}" class="nav__link">
+          <img src="{% static 'images/exit.svg' %}" alt="Выйти из личного кабинета" class="nav__image">
+        </a>
+      </li>
+    {% else %}
+      <li class="nav__link">
+        <a href="{% url 'login' %}" class="nav__link">
+          <img src="{% static 'images/account.svg' %}" alt="Личный кабинет" class="nav__image">
+        </a>
+      </li>
+    {% endif %}
   </ul>
 
   <section class="menu">

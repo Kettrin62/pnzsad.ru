@@ -1,15 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-  {% load static %}
-  <div class="row justify-content-center">
-    <div class="col-md-8 p-5">
-      <div class="card">
-        <div class="card-header"Вы вышли из системы</div>
-        <div class="card-body">
-          <p><img src="{% static 'images/logged_out.gif' %}" alt="девушка хлопает дверью"></p>
-          <br>
-        </div> <!-- card body -->
-      </div> <!-- card -->
-    </div> <!-- col -->
-  </div> <!-- row -->
+{% load static %}
+<section class="login" style="justify-content:center">
+  <img src="{% static 'images/logged_out.gif' %}" alt="девушка хлопает дверью">
+</section>
 {% endblock %}

@@ -24,7 +24,8 @@ const buttonOrderElement = bodyElement.querySelector('.cart__button-order');
 const formOrderElement = bodyElement.querySelector('.cart__order');
 // находим ссылки в меню навигации
 const linkMenuElements = bodyElement.querySelectorAll('.nav__link');
-
+// находим текст ошибки в заполнении формы
+const errorElement = bodyElement.querySelector('.error');
 
 // swiper
 const swiper = new Swiper('.swiper', {
@@ -165,3 +166,8 @@ if (buttonOrderElement) {
     scrollToElement(formOrderElement);
   });
 }
+
+// скролл к тексту ошибки
+if (errorElement) {
+  scrollToElement(errorElement);
+};

@@ -7,9 +7,3 @@
     font-size: 14px;
   }
 }
-
-@media all and (max-width: 560px) {
-  .cart__item-title {
-    grid-column: 1/2;
-  }
-}
