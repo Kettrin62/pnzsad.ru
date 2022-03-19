@@ -21,10 +21,11 @@ class SeedlingAdminForm(forms.ModelForm):
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'image', 'display_image', 'slug',
+        'title', 'display_image', 'display_order'
     )
     prepopulated_fields = {'slug': ('title',)}
     empty_value_display = EMPTY_VALUE
+    list_editable = ('display_order',)
 
     def display_image(self, obj):
         return mark_safe(f'<img src={obj.image.url} width="65" height="65">')
@@ -34,15 +35,18 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class SeedlingAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'category', 'image', 'display_image', 'stock',
-        'retail_price', 'wholesale_price', 'available', 'created', 'updated',
+        'title', 'category', 'display_image', 'stock',
+        'retail_price', 'wholesale_price', 'available', 'display_order'
     )
     prepopulated_fields = {'slug': ('title',)}
     empty_value_display = EMPTY_VALUE
     search_fields = ('title',)
     form = SeedlingAdminForm
     list_filter = ('category', 'available', 'created', 'updated')
-    list_editable = ('retail_price', 'wholesale_price', 'stock', 'available')
+    list_editable = (
+        'retail_price', 'wholesale_price', 'stock',
+        'available', 'display_order'
+    )
 
     def display_image(self, obj):
         return mark_safe(f'<img src={obj.image.url} width="65"  height="65">')
@@ -52,11 +56,10 @@ class SeedlingAdmin(admin.ModelAdmin):
 
 class SwiperAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'image', 'display_image', 'text', 'created', 'available',
-        'display_order',
+        'title', 'display_image', 'text', 'display_order', 'available',
     )
     empty_value_display = EMPTY_VALUE
-    list_editable = ('available', 'display_order')
+    list_editable = ('available', 'display_order', 'text')
 
     def display_image(self, obj):
         return mark_safe(f'<img src={obj.image.url} width="65"  height="65">')

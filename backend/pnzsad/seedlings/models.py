@@ -19,9 +19,12 @@ class Category(models.Model):
         upload_to='./Category/',
         verbose_name='Фото категории',
     )
+    display_order = models.PositiveSmallIntegerField(
+        verbose_name='Порядок отображения',
+    )
 
     class Meta:
-        ordering = ('title',)
+        ordering = ('display_order',)
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         constraints = (
@@ -87,6 +90,9 @@ class Seedling(models.Model):
     stock = models.PositiveIntegerField(
         verbose_name='Кол-во саженцев',
     )
+    display_order = models.PositiveSmallIntegerField(
+        verbose_name='Порядок отображения',
+    )
     available = models.BooleanField(
         default=True,
         verbose_name='Доступность',
@@ -101,7 +107,7 @@ class Seedling(models.Model):
     )
 
     class Meta:
-        ordering = ('title',)
+        ordering = ('display_order',)
         index_together = (('id', 'slug'),)
         verbose_name = 'Саженец'
         verbose_name_plural = 'Саженцы'
@@ -136,7 +142,7 @@ class Swiper(models.Model):
     )
     image = models.ImageField(
         upload_to='./Swiper/',
-        verbose_name='Фото сорта',
+        verbose_name='Фото сайда',
     )
     created = models.DateTimeField(
         auto_now_add=True,
