@@ -8,7 +8,7 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-COUNT_SEEDLINGS = 9
+COUNT_SEEDLINGS = 12
 COUNT_COMMENTS = 10
 
 CART_SESSION_ID = 'cart'
