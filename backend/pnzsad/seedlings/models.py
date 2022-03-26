@@ -24,7 +24,7 @@ class Category(models.Model):
     )
 
     class Meta:
-        ordering = ('display_order',)
+        ordering = ('display_order', 'title')
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         constraints = (
@@ -107,7 +107,7 @@ class Seedling(models.Model):
     )
 
     class Meta:
-        ordering = ('display_order',)
+        ordering = ('display_order', 'title')
         index_together = (('id', 'slug'),)
         verbose_name = 'Саженец'
         verbose_name_plural = 'Саженцы'

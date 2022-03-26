@@ -67,7 +67,8 @@ def cart_detail(request):
         }
     )
 
-    if order_form.is_valid() and quantity_valid:
+    not_empty_order = bool(len(cart))
+    if order_form.is_valid() and quantity_valid and not_empty_order:
         new_order = order_form.save()
         for item in cart:
             OrderItem.objects.create(
