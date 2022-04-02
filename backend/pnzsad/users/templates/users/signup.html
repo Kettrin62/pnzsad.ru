@@ -1,9 +1,12 @@
 {% extends "base.html" %}
+{% block title %}Регистрация{% endblock %}
 {% block content %}
   {% load static %}
   <section class="login">
     <img src="{% static 'images/signup.gif' %}" alt="Отпечаток пальца" class="login__image">
     <div class="login__content">
+      <p style="color: FireBrick;">&#8226; Регистрация в&nbsp;личном кабинете имеет смысл только для оптовых покупателей!
+      <p style="color: FireBrick;">&#8226; После успешной регистрации свяжитесь пожалуйста с владельцем питомника, для активации ваших привелегий</p>
       {% if form.errors%}
           <ul>
             {% for field, errors in form.errors.items %}

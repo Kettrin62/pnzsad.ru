@@ -1,10 +1,12 @@
 {% extends "base.html" %}
+{% block title %}Вход в личный кабинет{% endblock %}
 {% block content %}
   {% load static %}
   <section class="login">
     <img src="{% static 'images/login.gif' %}" alt="Пальцем набирает шифр" class="login__image">
     <div class="login__content">
       <h4>Для входа в личный кабинет введите ваши учетные данные</h4>
+      <p style="margin-left: 20px; color: FireBrick;">&#8226; Обратите внимание, личный кабинет пердназначен только для оптовых покупателей</p>
       {% if form.errors%}
           <ul>
             {% for field, errors in form.errors.items %}
