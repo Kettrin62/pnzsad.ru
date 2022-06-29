@@ -24,7 +24,7 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/www/django/static:ro
       - media_value:/var/www/django/media:ro
-      - /etc/ssl/:/etc/ssl/
+      - /etc/ssl_pnzsad:/etc/ssl_pnzsad
     depends_on:
       - web
   
